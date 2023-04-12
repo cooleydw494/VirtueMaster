@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import ProgressChart from '../components/ProgressChart';
+// import ProgressChart from '../components/ProgressChart';
 import { globalStyles, colors } from '../styles/globalStyles';
 
 const ProgressScreen = () => {
@@ -19,9 +19,9 @@ const ProgressScreen = () => {
     <View style={globalStyles.container}>
       <Text style={globalStyles.title}>Progress</Text>
       <Text style={globalStyles.subtitle}>Your Virtue Progress:</Text>
-      {progressData.map((virtueData, index) => (
+{/*       {progressData.map((virtueData, index) => (
         <ProgressChart key={index} virtueData={virtueData} />
-      ))}
+      ))} */}
     </View>
   );
 };

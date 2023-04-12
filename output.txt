@@ -1,0 +1,46 @@
+.
+├── App.js
+├── app.json
+├── assets
+│   ├── custom-pngs
+│   │   └── logo.png
+│   └── custom-svgs
+│       ├── BackgroundImage.js
+│       ├── background-image.svg
+│       ├── Logo.js
+│       └── logo.svg
+├── babel.config.js
+├── convert-logo.sh
+├── output.txt
+├── package.json
+├── package-lock.json
+├── print-project-tree.sh
+├── replit.nix
+├── src
+│   ├── components
+│   │   ├── Button.js
+│   │   ├── Card.js
+│   │   └── ProgressChart.js
+│   ├── database
+│   │   ├── connect.js
+│   │   ├── createBaseTables.js
+│   │   ├── createBaseTables.sql
+│   │   ├── seedTestData.js
+│   │   └── seedTestData.sql
+│   ├── navigation
+│   ├── screens
+│   │   ├── HomeScreen.js
+│   │   ├── ProgressScreen.js
+│   │   ├── SettingsScreen.js
+│   │   ├── SignInScreen.js
+│   │   ├── SignUpScreen.js
+│   │   ├── VirtueScreen.js
+│   │   └── WelcomeScreen.js
+│   ├── styles
+│   │   └── globalStyles.js
+│   └── utils
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.js
+
+10 directories, 33 files
