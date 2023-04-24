@@ -5,8 +5,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { initializeApp } from "firebase/app";
-// import { getAuth, onAuthStateChanged } from "firebase/auth";
-// import { getAnalytics } from "firebase"
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import WelcomeScreen from './src/screens/WelcomeScreen';
@@ -17,8 +15,8 @@ import VirtueScreen from './src/screens/VirtueScreen';
 import ProgressScreen from './src/screens/ProgressScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// The firebase Config values are already configured as env vars in Replit
+// They do not need to be defined anywhere else
 const firebaseConfig = {
   apiKey: process.env['FIREBASE_API_KEY'],
   authDomain: process.env['FIREBASE_AUTH_DOMAIN'],
@@ -29,10 +27,7 @@ const firebaseConfig = {
   measurementId: process.env['FIREBASE_MEASUREMENT_ID']
 };
 
-// if (!firebase.apps.length) {
-  initializeApp(firebaseConfig);
-  // getAnalytics(app);
-// }
+initializeApp(firebaseConfig);
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -59,22 +54,3 @@ const App = () => {
 };
 
 export default App;
-
-
-// export default function App() {
-//   return (
-//     <View style={styles.container}>
-//       <Text>Open up App.js to start working on your app!</Text>
-//       <StatusBar style="auto" />
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
