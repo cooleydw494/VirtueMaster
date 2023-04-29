@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { globalStyles, colors } from '../styles/globalStyles';
 
@@ -41,6 +42,10 @@ const SettingsScreen = ({ navigation }) => {
       </TouchableOpacity>
     </View>
   );
+};
+
+SettingsScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };
 
 export default SettingsScreen;

@@ -137,3 +137,10 @@ CREATE TABLE focus_virtue_entries (
   FOREIGN KEY (weekly_focus_virtue_id) REFERENCES weekly_focus_virtues(id),
   UNIQUE(user_id, weekly_focus_virtue_id, entry_date)
 );
+
+/* CodeMonkey Comments:
+
+- This SQL script creates the base tables required for the VirtueMaster PostgreSQL database.
+- Tables include users, virtues, user_virtues, daily_virtue_entries, milestone_definitions, milestones, user_milestones, goals, notifications, weekly_focus_virtues, and focus_virtue_entries.
+- Each table is created to store specific data related to the functioning of the VirtueMaster app.
+*/

@@ -1,36 +1,8 @@
-import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { globalStyles } from '../styles/globalStyles';
-import Svg, { Path } from 'react-native-svg';
-import BackgroundImage from '../../assets/custom-svgs/BackgroundImage.js';
-import Logo from '../../assets/custom-svgs/Logo.js';
+import React from 'react';\nimport { View, Text, TouchableOpacity } from 'react-native';\nimport { globalStyles } from '../styles/globalStyles';\nimport Svg, { Path } from 'react-native-svg';\nimport BackgroundImage from '../../assets/custom-svgs/BackgroundImage.js';\nimport Logo from '../../assets/custom-svgs/Logo.js';\n\nconst WelcomeScreen = ({ navigation }) => {\n  return (\n    <View style={globalStyles.container}>\n      <View style={globalStyles.overlay}>\n        <BackgroundImage style={globalStyles.background}/>\n        <Logo style={globalStyles.logo} />\n        <Text style={globalStyles.title}>VirtueMaster</Text>\n        <Text style={globalStyles.subtitle}>\n          Unlock your potential through the practice of virtues.\n        </Text>\n        <TouchableOpacity\n          style={globalStyles.primaryButton}\n          onPress={() => navigation.navigate('SignInScreen')}\n        >\n        <Text style={globalStyles.buttonText}>Sign In</Text>\n        </TouchableOpacity>\n        <TouchableOpacity\n          style={globalStyles.secondaryButton}\n          onPress={() => navigation.navigate('SignUpScreen')}\n        >\n          <Text style={globalStyles.buttonText}>Sign Up</Text>\n        </TouchableOpacity>\n      </View>\n    </View>\n  );\n};\n\nexport default WelcomeScreen;
 
-const WelcomeScreen = ({ navigation }) => {
-  return (
-    <View style={globalStyles.container}>
-      
-      <View style={globalStyles.overlay}>
-        <BackgroundImage style={globalStyles.background}/>
-        <Logo style={globalStyles.logo} />
-        <Text style={globalStyles.title}>VirtueMaster</Text>
-        <Text style={globalStyles.subtitle}>
-          Unlock your potential through the practice of virtues.
-        </Text>
-        <TouchableOpacity
-          style={globalStyles.primaryButton}
-          onPress={() => navigation.navigate('SignInScreen')}
-        >
-        <Text style={globalStyles.buttonText}>Sign In</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={globalStyles.secondaryButton}
-          onPress={() => navigation.navigate('SignUpScreen')}
-        >
-          <Text style={globalStyles.buttonText}>Sign Up</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
-};
+/* CodeMonkey Comments:
 
-export default WelcomeScreen;
+- WelcomeScreen.js displays the Welcome screen for the VirtueMaster app.
+- The screen has SignIn and SignUp buttons for navigation.
+- The custom Logo and BackgroundImage SVG components are imported and used in this screen.
+*/

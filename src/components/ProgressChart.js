@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import { BarChart, XAxis } from 'react-native-svg-charts';
 import * as scale from 'd3-scale';
@@ -24,7 +25,7 @@ const ProgressChart = ({ data }) => {
       />
       <XAxis
         style={{ marginTop: 10 }}
-        data={data}
+        data=data
         scale={scale.scaleBand}
         formatLabel={(value, index) => labels[index]}
         labelStyle={{ color: 'black' }}
@@ -34,4 +35,25 @@ const ProgressChart = ({ data }) => {
   );
 };
 
+ProgressChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number.isRequired,
+      color: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ),
+};
+
+ProgressChart.defaultProps = {
+  data: [],
+};
+
 export default ProgressChart;
+
+/* CodeMonkey Comments:
+
+- ProgressChart.js is a bar chart component for displaying progress data.
+- The chart's data, colors, and labels are received through the 'data' prop as an array containing objects with the keys 'value', 'color', and 'label'.
+- 'react-native-svg-charts' and 'd3-scale' libraries are used to generate the chart and labels.
+*/

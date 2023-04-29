@@ -163,3 +163,10 @@ const globalStyles = StyleSheet.create({
 });
 
 export { globalStyles, colors };
+
+
+/* CodeMonkey Comments:
+
+- This globalStyles.js file contains centralized styles and colors for the VirtueMaster app.
+- The included styles are used across the app, making it easier to create a consistent user interface and modify styles globally.
+*//* CodeMonkey: This file contains the global styles for the VirtueMaster app. It defines styles and colors, which are well-structured and easy to follow.*/

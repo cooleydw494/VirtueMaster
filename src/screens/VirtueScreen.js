@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import { globalStyles, colors } from '../styles/globalStyles';
@@ -6,6 +7,10 @@ import { globalStyles, colors } from '../styles/globalStyles';
 const VirtueScreen = ({ route }) => {
   const { title, description } = route.params;
   const [checked, setChecked] = useState(false);
+
+  const handlePress = useCallback(() => {
+    setChecked(!checked);
+  }, [checked]);
 
   return (
     <ScrollView style={globalStyles.container}>
@@ -21,7 +26,7 @@ const VirtueScreen = ({ route }) => {
         <CheckBox
           title='Practiced today'
           checked={checked}
-          onPress={() => setChecked(!checked)}
+          onPress={handlePress}
           containerStyle={globalStyles.checkbox}
         />
       </View>
@@ -29,4 +34,16 @@ const VirtueScreen = ({ route }) => {
   );
 };
 
+VirtueScreen.propTypes = {
+  route: PropTypes.object.isRequired,
+};
+
 export default VirtueScreen;
+
+/* CodeMonkey Comments:
+
+- VirtueScreen.js is the screen for each virtue in the VirtueMaster app.
+- It receives the title and description of a virtue as props.
+- Users can toggle a checkbox to indicate whether they practiced the virtue for the day.
+- A reflection prompt is provided for users to contemplate the effects of that virtue on their life.
+*/

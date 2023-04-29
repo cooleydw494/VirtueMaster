@@ -27,3 +27,15 @@ const ProgressScreen = () => {
 };
 
 export default ProgressScreen;
+
+/* CodeMonkey Comments:
+
+- ProgressScreen.js will display the progress of virtues for the user.
+- The screen currently contains dummy data for demonstration purposes.
+- The ProgressChart component is commented out, and it should be imported and used when available to display the progress for each virtue in a visually appealing manner.
+- Uncomment the import, ProgressChart component usage, and the map function when the ProgressChart component is ready.
+*/
+import ProgressChart from '../components/ProgressChart';
+{/*       {progressData.map((virtueData, index) => (
+        <ProgressChart key={index} virtueData={virtueData} />
+      ))} */}

@@ -1,42 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, TouchableOpacity } from 'react-native';
-import { globalStyles, colors } from '../styles/globalStyles';
-import Card from '../components/Card';
+import React, { useState, useEffect, useCallback } from 'react';\nimport { View, Text, FlatList, TouchableOpacity } from 'react-native';\nimport PropTypes from 'prop-types';\nimport { globalStyles, colors } from '../styles/globalStyles';\nimport Card from '../components/Card';\n\nconst HomeScreen = ({ navigation }) => {\n  const [virtues, setVirtues] = useState([]);\n  const [loading, setLoading] = useState(true);\n\n  useEffect(() => {\n    // Fetch virtues from database or API here\n    // For now, using sample data\n    const fetchVirtues = async () => {\n      try {\n        const sampleVirtues = [\n          { id: '1', title: 'Virtue 1', description: 'Virtue 1 Description' },\n          { id: '2', title: 'Virtue 2', description: 'Virtue 2 Description' },\n          { id: '3', title: 'Virtue 3', description: 'Virtue 3 Description' },\n        ];\n\n        setVirtues(sampleVirtues);\n        setLoading(false);\n      } catch (error) {\n        console.error('Error fetching data:', error);\n      }\n    };\n\n    fetchVirtues();\n  }, []);\n\n  const handlePress = useCallback(\n    (item) => {\n      navigation.navigate('VirtueScreen', item);\n    },\n    [navigation]\n  );\n\n  if (loading) {\n    return (\n      <View style={globalStyles.container}>\n        <Text>Loading...</Text>\n      </View>\n    );\n  }\n\n  return (\n    <View style={globalStyles.container}>\n      <Text style={globalStyles.title}>Virtues</Text>\n      <FlatList\n        data={virtues}\n        renderItem={({ item }) => (\n          <TouchableOpacity onPress={() => handlePress(item)}>\n            <Card>\n              <Text style={globalStyles.cardTitle}>{item.title}</Text>\n              <Text style={globalStyles.cardSubtitle}>{item.description}</Text>\n            </Card>\n          </TouchableOpacity>\n        )}\n        keyExtractor={(item) => item.id}\n      />\n    </View>\n  );\n};\n\nHomeScreen.propTypes = {\n  navigation: PropTypes.object.isRequired,\n};\n\nexport default HomeScreen;
 
-const HomeScreen = ({ navigation }) => {
-  const [virtues, setVirtues] = useState([]);
+/* CodeMonkey Comments:
 
-  useEffect(() => {
-    // Fetch virtues from database here
-    // For now, using sample data
-    const sampleVirtues = [
-      { id: '1', title: 'Virtue 1', description: 'Virtue 1 Description' },
-      { id: '2', title: 'Virtue 2', description: 'Virtue 2 Description' },
-      { id: '3', title: 'Virtue 3', description: 'Virtue 3 Description' },
-    ];
-
-    setVirtues(sampleVirtues);
-  }, []);
-
-  return (
-    <View style={globalStyles.container}>
-      <Text style={globalStyles.title}>Virtues</Text>
-      <FlatList
-        data={virtues}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            onPress={() => navigation.navigate('VirtueScreen', item)}
-          >
-            <Card>
-              <Text style={globalStyles.cardTitle}>{item.title}</Text>
-              <Text style={globalStyles.cardSubtitle}>{item.description}</Text>
-            </Card>
-          </TouchableOpacity>
-        )}
-        keyExtractor={(item) => item.id}
-      />
-    </View>
-  );
-};
-
-export default HomeScreen;
+- HomeScreen.js displays a list of virtues fetched from an API or database (currently using hardcoded sample data).
+- The fetched data is processed, and cards containing virtues and their descriptions are rendered as a list.
+- Each card is a touchable opacity item, allowing users to navigate to a VirtueScreen with more details.
+- TODO: Replace sample data with real data fetched from the API or database when available.
+*/
