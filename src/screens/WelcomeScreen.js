@@ -5,4 +5,4 @@ import React from 'react';\nimport { View, Text, TouchableOpacity } from 'react-
 - WelcomeScreen.js displays the Welcome screen for the VirtueMaster app.
 - The screen has SignIn and SignUp buttons for navigation.
 - The custom Logo and BackgroundImage SVG components are imported and used in this screen.
-*/
+*/\n/* Additional CodeMonkey Comments:\n\n- The WelcomeScreen.js file has implemented Welcome and Sign-In/Sign-Up screens as per the README.md.\n- No major improvements or changes identified at this moment.\n\n*/
