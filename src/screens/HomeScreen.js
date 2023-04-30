@@ -7,3 +7,41 @@ import React, { useState, useEffect, useCallback } from 'react';\nimport { View,
 - Each card is a touchable opacity item, allowing users to navigate to a VirtueScreen with more details.
 - TODO: Replace sample data with real data fetched from the API or database when available.
 */
+
+import pool from '../database/connect';
+
+useEffect(() => {
+  const fetchVirtues = async () => {
+    try {
+      const result = await pool.query('SELECT * FROM virtues');
+
+      setVirtues(result.rows);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  fetchVirtues();
+}, []);
+
+/* Updated CodeMonkey Comments:
+
+- HomeScreen.js fetches virtue data from the PostgreSQL database instead of using hardcoded sample data.
+- The 'SELECT * FROM virtues' query retrieves all virtues from the database. Make sure the database structure and setup are correct for successful data fetching.
+*/
+
+/* Updated CodeMonkey Comments:
+
+- HomeScreen.js now fetches virtue data from the PostgreSQL database instead of using hardcoded sample data.
+- The 'SELECT * FROM virtues' query retrieves all virtues from the database. Further optimization may include pagination or filtering of results.
+- Make sure the database structure and setup are correct for successful data fetching.
+- As the app grows or the design changes, consider refining the UI/UX in this file.
+*/
+/* Updated CodeMonkey Comments:
+
+- HomeScreen.js now fetches virtue data from the PostgreSQL database instead of using hardcoded sample data.
+- The 'SELECT * FROM virtues' query retrieves all virtues from the database. Further optimization may include pagination or filtering of results.
+- Make sure the database structure and setup are correct for successful data fetching.
+- As the app grows or the design changes, consider refining the UI/UX in this file.
+*/

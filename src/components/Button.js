@@ -45,3 +45,10 @@ export default Button;
 - Button.js is a reusable button component for handling user interactions in the VirtueMaster app.
 - Styled with the globalStyles from '../styles/globalStyles', this component accepts title, onPress, style, and textStyle as props.
 */
+
+/* Additional CodeMonkey Comments:
+
+- The Button component currently only supports a rounded rectangular shape based on borderRadius styling. Consider adding the option to set the borderRadius from its parent component for more versatility and styling options.
+
+- To make the Button component more adaptive to different scenarios, consider allowing more button states, such as disabled or active, with their corresponding visual styles.
+*/

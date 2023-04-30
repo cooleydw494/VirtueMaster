@@ -47,3 +47,19 @@ export default VirtueScreen;
 - Users can toggle a checkbox to indicate whether they practiced the virtue for the day.
 - A reflection prompt is provided for users to contemplate the effects of that virtue on their life.
 */
+/* CodeMonkey Comments:
+
+- VirtueScreen.js is the screen for each virtue in the VirtueMaster app.
+- It receives the title and description of a virtue as props.
+- Users can toggle a checkbox to indicate whether they practiced the virtue for the day.
+- A reflection prompt is provided for users to contemplate the effects of that virtue on their life.
+*/
+
+/* Proposed CodeMonkey Changes:
+
+- Implement a function that saves the user's input when the checkbox is toggled.
+- The function should be triggered on the onPress event of the CheckBox component.
+- The user's input should be submitted to the backend, presumably through an API or query.
+
+Please note that due to limited information about the backend, a precise implementation cannot be provided at this moment. Adjust this code based on the backend's design.
+*/

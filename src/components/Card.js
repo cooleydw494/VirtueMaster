@@ -7,3 +7,10 @@ import React from 'react';\nimport PropTypes from 'prop-types';\nimport { View, 
 - This component can be used to create cards with different content throughout the app while maintaining consistent styling.
 - It uses propTypes to enforce the required 'children' prop.
 */
+/* CodeMonkey Comments:
+
+- Card.js is a reusable card component.
+- It accepts children as props, which can be any React element(s) to be displayed within the card.
+- This component can be used to create cards with different content throughout the app while maintaining consistent styling.
+- It uses propTypes to enforce the required 'children' prop.
+*/

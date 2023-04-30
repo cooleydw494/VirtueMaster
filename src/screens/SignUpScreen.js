@@ -94,3 +94,10 @@ export default SignUpScreen;
       setLoading(false);
     }
   };
+
+/* Updated CodeMonkey Comments:
+
+- SignUpScreen.js now includes Firebase authentication logic for sign up.
+- The createUserWithEmailAndPassword method is used to create a new user account with the provided email and password.
+- Alerts have been added to display success messages and errors to the user.
+*/

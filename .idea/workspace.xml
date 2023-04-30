@@ -5,21 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e5027ef-2519-4fd3-bf8c-afe202d205b7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProgressChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProgressChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/connect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/connect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/createBaseTables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/createBaseTables.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/createBaseTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/createBaseTables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomeScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/ProgressScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/ProgressScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/SettingsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SettingsScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SignInScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/SignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SignUpScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/VirtueScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/VirtueScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/WelcomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/WelcomeScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/globalStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/globalStyles.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +56,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682804704652</updated>
-      <workItem from="1682804706234" duration="2509000" />
+      <workItem from="1682804706234" duration="4388000" />
     </task>
     <servers />
   </component>
