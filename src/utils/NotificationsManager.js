@@ -7,3 +7,12 @@
 // - Test notifications on both Android and iOS devices, taking care of platform-specific permissions.
 // - Consider edge cases, such as what happens if the app is uninstalled.
 // - Make sure the daily notifications feature follows best practices for both the platform and the user experience.
+
+
+/* CodeMonkey Comments:
+
+- NotificationsManager.js is an implementation outline for the future enhancements.
+- It's goal is to handle daily notifications that remind users to track progress.
+- It mentions researching and sending local notifications on both Android and iOS devices using React Native.
+- The actual implementation of a notifications manager should include scheduling, creating, and canceling notifications.
+*/

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-// import ProgressChart from '../components/ProgressChart';
+import ProgressChart from '../components/ProgressChart';
 import { globalStyles, colors } from '../styles/globalStyles';
 
 const ProgressScreen = () => {
@@ -15,14 +15,20 @@ const ProgressScreen = () => {
     { virtue: 'Chastity', progress: 0.9 },
   ];
 
+  // Dummy data for points and rewards
+  const userPoints = 123;
+  const userRewards = 5;
+
   return (
-    <View style={globalStyles.container}>
-      <Text style={globalStyles.title}>Progress</Text>
-      <Text style={globalStyles.subtitle}>Your Virtue Progress:</Text>
-{/*       {progressData.map((virtueData, index) => (
-        <ProgressChart key={index} virtueData={virtueData} />
-      ))} */}
-    </View>
+      <View style={globalStyles.container}>
+        <Text style={globalStyles.title}>Progress</Text>
+        <Text style={globalStyles.subtitle}>Points: {userPoints}</Text>
+        <Text style={globalStyles.subtitle}>Rewards: {userRewards}</Text>
+        <Text style={globalStyles.subtitle}>Your Virtue Progress:</Text>
+        {progressData.map((virtueData, index) => (
+            <ProgressChart key={index} virtueData={virtueData} style={[globalStyles.progressChart, {backgroundColor: colors.primary}]} />
+        ))}
+      </View>
   );
 };
 

@@ -27,3 +27,16 @@ export { pointsEarned, updatePoints };
 // 5. Implement a progress dashboard or summary for the user, displaying their total points, level, and achievements.
 // 6. Allow users to compare their progress and achievements with friends, further engaging them and fostering healthy competition.
 // 7. Iterate on the system to optimize user engagement and maintain their motivation to continue participating in the app.
+
+/* CodeMonkey Comments:
+
+- pointsSystem.js is a module that calculates points earned and updates the points.
+- There are several hardcoded activities with their corresponding points value.
+- The module exports two main functions: 'pointsEarned' returns earned points based on activity and 'updatePoints' updates user's points based on activity.
+
+Recommendations for improvements:
+
+1. Expand the number and types of activities that can earn points to engage users.
+2. Implement a more configurable and dynamic points system.
+3. Consider refactoring hardcoded values into a separate configuration file or into the database for easier management.
+*/

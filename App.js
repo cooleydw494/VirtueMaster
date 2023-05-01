@@ -59,3 +59,17 @@ const App = () => {
 };
 
 export default App;
+
+/* CodeMonkey Comments:
+
+- App.js is the entry point of the VirtueMaster application.
+- It initializes Firebase, sets up navigation, and renders the main screen.
+- The app uses react-navigation for handling screen transitions and navigation.
+- The TabNavigator and StackNavigator components are used to structure the app.
+
+Suggestions:
+
+1. Improve the overall user experience by adding custom icons and styling to the bottom tab navigator.
+2. Implement push notifications to notify users about progress updates or goal completion.
+3. Add data caching and offline support so that users can access the app without a constant internet connection.
+*/

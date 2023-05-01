@@ -25,3 +25,10 @@ const styles = StyleSheet.create({
 });
 
 export default Header;
+
+/* CodeMonkey Comments:
+
+- Header.js is a reusable header component that accepts a title as a prop.
+- It is used to render a consistent header with a title across various screens in the app.
+- The header styling is defined within the file using StyleSheet.create.
+*/
