@@ -1,4 +1,27 @@
-import React from 'react';\nimport PropTypes from 'prop-types';\nimport { View, StyleSheet } from 'react-native';\nimport { colors } from '../styles/globalStyles';\n\nconst Card = ({ children }) => {\n  return <View style={styles.card}>{children}</View>;\n};\n\nCard.propTypes = {\n  children: PropTypes.node.isRequired,\n};\n\nconst styles = StyleSheet.create({\n  card: {\n    backgroundColor: colors.cardBackground,\n    borderRadius: 5,\n    marginVertical: 10,\n    paddingHorizontal: 15,\n    paddingVertical: 10,\n  },\n});\n\nexport default Card;
+import React from 'react';
+import PropTypes from 'prop-types';
+import { View, StyleSheet } from 'react-native';
+import { colors } from '../styles/globalStyles';
+
+const Card = ({ children }) => {
+  return <View style={styles.card}>{children}</View>;
+};
+
+Card.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+const styles = StyleSheet.create({
+  card: {
+    backgroundColor: colors.cardBackground,
+    borderRadius: 5,
+    marginVertical: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+  },
+});
+
+export default Card;
 
 /* CodeMonkey Comments:
 

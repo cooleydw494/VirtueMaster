@@ -63,3 +63,12 @@ export default VirtueScreen;
 
 Please note that due to limited information about the backend, a precise implementation cannot be provided at this moment. Adjust this code based on the backend's design.
 */
+
+// Task 3: Develop the Virtue Screen with detailed information and daily tracking
+// 1. Design the layout of the Virtue Screen, showcasing detailed information about the selected virtue in an intuitive manner.
+// 2. Implement a daily tracking feature allowing users to rate their performance on the selected virtue.
+// 3. Display historical tracking data in a visually appealing format, such as charts, graphs, or calendars.
+// 4. Offer additional resources, tips, or challenges related to the specific virtue in order to keep users engaged.
+// 5. Integrate with the Firebase database to store and retrieve user tracking data and other virtue resources.
+// 6. Optimize the user interface for better readability and navigation experience.
+// 7. Test and refine the Virtue Screen for effective user engagement.

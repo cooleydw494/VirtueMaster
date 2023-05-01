@@ -101,3 +101,31 @@ export default SignUpScreen;
 - The createUserWithEmailAndPassword method is used to create a new user account with the provided email and password.
 - Alerts have been added to display success messages and errors to the user.
 */
+
+// Task 1: Implement Welcome and Authentication Screens
+// SignUpScreen.js
+// 1. Ensure a visually appealing and user-friendly design for the SignUp Screen.
+// 2. Incorporate clear fields for users to input their email address, password, and any other required information.
+// 3. Implement error handling and input validation for user inputs, including password complexity requirements.
+// 4. Integrate with the authentication service to securely create user accounts and manage sessions.
+// 5. Provide intuitive navigation to other screens, such as SignInScreen, Privacy Policy, or back to WelcomeScreen.
+// 6. Utilize animations or transitions to enhance the user experience and overall polish of the screen.
+
+// Task 18: Implement error handling and input validation for user inputs
+// 1. Validate email format and display an error message on incorrect input.
+// 2. Validate password length and display an error message if it does not meet minimum requirements.
+// 3. Ensure that an error message is displayed if the user registration fails, such as email already in use.
+// 4. Add any necessary try-catch blocks to handle errors in the registration process.
+
+// Task 11: Improve user interface and overall user experience
+// 1. Revisit the design and layout to ensure it is visually appealing and user-friendly.
+// 2. Add more user feedback, such as loading indicators and tooltips.
+// 3. Test the screen on various devices and orientations to ensure responsiveness and consistency in the layout.
+
+// Task 18: Implement error handling and input validation for user inputs
+// To enhance the user experience and avoid bugs, follow these best practices:
+// 1. Validate all user input on the client-side and server-side. Inputs should match the required pattern and criteria.
+// 2. Handle errors gracefully by displaying appropriate error messages to users.
+// 3. Ensure that user feedback is accurate and precise, stating the specific issue and guidance for correction.
+// 4. Use a combination of input constraints, filters, and data sanitization methods to reduce the risk of application security vulnerabilities.
+// Apply these principles throughout the app wherever user inputs are processed.

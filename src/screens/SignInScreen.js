@@ -135,3 +135,33 @@ const signIn = async (values) => {
   };
 
 */
+
+// Task 1: Implement Welcome and Authentication Screens
+// SignInScreen.js
+// 1. Ensure a visually appealing and user-friendly design for the SignIn Screen.
+// 2. Incorporate clear fields for users to input their email address and password.
+// 3. Implement error handling and input validation for user inputs.
+// 4. Integrate with the authentication service to securely sign in users and manage sessions.
+// 5. Provide intuitive navigation to other screens, such as SignUpScreen, Forgot Password, or back to WelcomeScreen.
+// 6. Utilize animations or transitions to enhance the user experience and overall polish of the screen.
+
+// Task 18: Implement error handling and input validation for user inputs
+// 1. Validate email format and display an error message on incorrect input.
+// 2. Validate password length and display an error message if it does not meet minimum requirements.
+// 3. Ensure that an error message is displayed if the user authentication fails, such as incorrect email or password.
+// 4. Add any necessary try-catch blocks to handle errors in the authentication process.
+
+// Task 11: Improve user interface and overall user experience
+// 1. Revisit the design and layout to ensure it is visually appealing and user-friendly.
+// 2. Add more user feedback, such as loading indicators and tooltips.
+// 3. Test the screen on various devices and orientations to ensure responsiveness and consistency in the layout.
+
+// Task 15: Add comments for better readability and maintainability
+// Consider adding comments to the following areas:
+// 1. Functions and methods, including their purpose and parameters
+// 2. Variables, states, and useEffects to clarify their purpose and usage
+// 3. Code blocks and loops to describe the logic
+// 4. Components and custom hooks, including their role and interactions with other components
+// 5. Conditional logic and its reasoning
+// 6. Edge cases and any specific assumptions.
+// Note: Apply these principles as appropriate throughout the codebase.

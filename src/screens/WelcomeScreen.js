@@ -6,3 +6,17 @@ import React from 'react';\nimport { View, Text, TouchableOpacity } from 'react-
 - The screen has SignIn and SignUp buttons for navigation.
 - The custom Logo and BackgroundImage SVG components are imported and used in this screen.
 */\n/* Additional CodeMonkey Comments:\n\n- The WelcomeScreen.js file has implemented Welcome and Sign-In/Sign-Up screens as per the README.md.\n- No major improvements or changes identified at this moment.\n\n*/
+
+// Task 1: Implement Welcome and Authentication Screens
+// WelcomeScreen.js
+// 1. Ensure a visually appealing and user-friendly design for the Welcome Screen.
+// 2. Incorporate brand colors and visuals to create a cohesive look and feel.
+// 3. Clearly display the options to sign in or sign up, as well as any guest access or demo features.
+// 4. Utilize animations or transitions to enhance the user experience and overall polish of the screen.
+// 5. Ensure a direct and seamless transition to SignInScreen and SignUpScreen, as well as any other related screens.
+
+// Task 19: Add a user onboarding tutorial to guide new users
+// 1. Create a series of introductory screens or tooltips to guide users through the app's main features and functionality.
+// 2. Design the tutorial to be visually appealing and engaging.
+// 3. Ensure the tutorial can be easily updated as new features are added.
+// 4. Allow users to skip the tutorial if they prefer, but make it easily accessible from the settings or help pages.

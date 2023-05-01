@@ -39,3 +39,20 @@ import ProgressChart from '../components/ProgressChart';
 {/*       {progressData.map((virtueData, index) => (
         <ProgressChart key={index} virtueData={virtueData} />
       ))} */}
+
+// Task 4: Design the Progress Screen to visualize progress using charts and graphs
+// - Update or replace the dummy data with real user data fetched from the backend or API.
+// - Ensure the ProgressChart component is imported correctly and update its implementation accordingly to display intuitive charts and graphs.
+// - Consider using popular charting libraries such as Recharts or D3.js to create visually appealing and customizable graphics.
+// - Test different chart types to determine the best method for presenting the user's progress data.
+// - Be mindful of accessible design and ensure the charts can be read and understood by all users.
+
+
+// Task 13: Foster user engagement and retention
+// ProgressScreen.js
+// 1. Display the user's progress in a visually appealing and easy-to-understand way.
+// 2. Use different types of visualizations, such as bar charts, line charts, or pie charts, to represent various aspects of the user's progress.
+// 3. Enable users to interactively analyze their progress by customizing date ranges, chart types, or filtering options.
+// 4. Provide insights, recommendations, or congratulatory messages based on the user's achievements to encourage continued usage.
+// 5. Enhance the UX and UI of the Progress Screen to make it more engaging and informative.
+// 6. Continuously refine the Progress Screen based on user feedback and engagement metrics.

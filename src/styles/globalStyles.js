@@ -170,3 +170,29 @@ export { globalStyles, colors };
 - This globalStyles.js file contains centralized styles and colors for the VirtueMaster app.
 - The included styles are used across the app, making it easier to create a consistent user interface and modify styles globally.
 *//* CodeMonkey: This file contains the global styles for the VirtueMaster app. It defines styles and colors, which are well-structured and easy to follow.*/
+
+
+// Task 22: Add a dark mode option for user preference and comfort
+// - Create a new set of color variables for dark mode (e.g., darkColors).
+// - Implement a toggle in the app's Settings Screen to switch between light and dark mode.
+// - Connect the toggle's state to a global state (using Redux or React Context) so the theme colors can be changed throughout the app.
+// - Modify components to use the appropriate color variables based on the theme.
+// - Test the app to ensure all components respect the dark mode settings and are displayed correctly.
+// - Make sure the dark mode has good contrast and is accessible to users with visual impairments.
+
+
+// Task 20: Optimize the app for different screen sizes and orientations
+// - Research and implement a responsive design approach using React Native's built-in features like flexbox, percentages, and relative dimensions.
+// - Adopt the method useStateDimensions for managing orientation changes (provided by 'react-native-hooks').
+// - Create different style configurations depending on the screen size and device orientation.
+// - Test the app on various devices, including phones and tablets with different screen sizes and multiple orientations.
+// - Ensure the usability of the app is not compromised in different screen sizes and orientations.
+// - Review the design and layout to maintain a user-friendly interface on all devices and orientations.
+
+// Task 21: Follow accessibility guidelines for a more inclusive user experience
+// 1. Ensure text sizes and colors are legible, and contrast ratios meet accessibility standards.
+// 2. Make sure interactive elements like buttons and links have sufficient size for easy interaction.
+// 3. Add alternative text for images and other non-text content for screen reader users.
+// 4. Organize content through semantic HTML for better screen reader support.
+// 5. Provide keyboard navigation and focus management, making sure all elements can be accessed using keyboard only.
+// 6. Test the app using various accessibility tools and address any issues identified.

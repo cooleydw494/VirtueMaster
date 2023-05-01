@@ -127,3 +127,12 @@ export default SettingsScreen;
 - The handleResetProgress function still needs implementation.
 
 */
+
+// Task 5: Build the Settings Screen for account management
+// 1. Design a clean and user-friendly layout for the Settings Screen.
+// 2. Implement sections for account details, app preferences, and other relevant options.
+// 3. Allow users to change their password, email address, and account information in a secure and safe manner.
+// 4. Integrate with the Firebase authentication and database services to update and fetch user information.
+// 5. Incorporate user preferences, such as preferred theme, notification settings, privacy settings, and any other required options.
+// 6. Include links to relevant legal information such as the privacy policy, terms of service, and any other necessary materials.
+// 7. Provide a clear option to log out and/or delete the user account if necessary.

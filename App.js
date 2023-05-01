@@ -32,6 +32,10 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const App = () => {
+  // Enhancement 1: Improve the overall user experience by adding custom icons and styling to the bottom tab navigator.
+  // Enhancement 2: Implement push notifications to notify users about progress updates or goal completion.
+  // Enhancement 3: Add data caching and offline support so that users can access the app without a constant internet connection.
+
   const TabNavigator = () => (
     <Tab.Navigator>
       <Tab.Screen name='HomeScreen' component={HomeScreen} />
