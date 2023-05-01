@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Check if the current directory is a Git repository
+if [ ! -d .git ]; then
+  echo "Error: This script must be run from the root of a Git repository."
+  exit 1
+fi
+
+# Perform garbage collection and prune unreachable objects
+git gc --prune=now
+
+# Compress the repository
+git repack -a -d --depth=250 --window=250
+
+# Clean up the reflog
+git reflog expire --expire=now --all
+
+# Prune deleted branches and tags
+git fetch --prune
+git fetch --prune --prune-tags
+
+echo "Git repository cleanup completed."
+
