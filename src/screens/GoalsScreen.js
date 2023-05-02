@@ -1,82 +1,28 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
+import GoalItem from '../components/GoalItem';
 import { globalStyles, colors } from '../styles/globalStyles';
 
 const GoalsScreen = () => {
+  const goals = []; // Replace with actual goals data
+
+  const renderItem = ({ item }) => (
+    <GoalItem title={item.title} description={item.description} />
+  );
+
   return (
     <View style={globalStyles.container}>
       <Text style={globalStyles.title}>Goals</Text>
-      <Text>Goals and challenges related to virtues will be displayed here.</Text>
+      <FlatList
+        data={goals}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        initialNumToRender={10}
+        maxToRenderPerBatch={10}
+        windowSize={5}
+      />
     </View>
   );
 };
 
 export default GoalsScreen;
-
-// Task 17: Ensure consistent naming conventions for variables and functions
-// Consider adopting and enforcing consistent naming conventions across the entire codebase. Some best practices include:
-// 1. Using camelCase for variable names and object properties.
-// 2. Using PascalCase for class and component names.
-// 3. Using UPPER_CASE for constants.
-// 4. Providing descriptive names for variables and functions that indicate their purpose and functionality.
-// 5. Following established naming guidelines in the React Native community and within your team.
-// Implement these naming conventions consistently throughout the entire codebase, not only in this file.
-
-/* CodeMonkey Comments:
-
-- GoalsScreen.js is the screen component handling goals and virtue-related challenges for users.
-- It renders a container with a title and a placeholder text for future implementations of goals display and interactivity.
-
-Suggestions for improving this file:
-
-1. Implement a more robust and interactive goals system where users can add, edit, and keep track of their progress.
-2. Use custom components for list items and other views to improve usability and user experience.
-3. Optimize and follow recommended React Native best practices, such as conditionally rendering only the visible goals on the screen.
-*/
-
-/*
-Project Overview:
-
-1. globalStyles.js: Base styles
-   - container, titleText, paragraph, input, button, buttonText
-   Usage: globalStyles.container, etc.
-2. PostgreSQL DB: Tables & Columns
-   - users: firebase_uid, email, display_name, provider, profile_picture_url, points, rewards, created_at, updated_at
-   - virtues: name, description, short_description, icon_name, created_at, updated_at
-   - user_virtues: current_streak, longest_streak, total_days, total_successes, total_failures
-   - daily_virtue_entries: entry_date, status, notes, rating
-   - milestone_definitions: name, description, progress_requirement, icon_name, created_at, updated_at
-   - milestones: achieved_date
-   - user_milestones: notes, rating
-   - goals: title, description, target_date, status
-   - notifications: title, message, is_read, created_at, updated_at
-   - weekly_focus_virtues: start_date, end_date
-   - focus_virtue_entries: entry_date, status, notes, rating
-   - points_log: points, description, created_at
-   - rewards_log: rewards, description, created_at
-3. connect.js: Connect to DB
-   - Import 'pg', 'dotenv', create & export 'Pool' instance
-   Usage: Import 'pool' in other modules to query the database
-4. Directory Structure:
-   - App.js: Main entry point
-   - README.md: Documentation
-   - assets: Images & SVGs
-     - custom-pngs: PNG files
-       - logo.png: App logo (PNG)
-     - custom-svgs: SVG files & components
-       - BackgroundImage.js, Logo.js: SVG components
-       - background-image.svg, logo.svg: SVG files
-   - src: App components, screens, styles & utilities
-     - components: Reusable components
-       - Button.js, Card.js, Header.js, ProgressChart.js, ResourceLibrary.js
-     - database: DB connection & scripts
-       - connect.js, createBaseTables.js, createBaseTables.sql, seedTestData.js, seedTestData.sql
-     - screens: App screens
-       - CommunityScreen.js, GoalsScreen.js, HomeScreen.js, ProgressScreen.js, SettingsScreen.js, SignInScreen.js, SignUpScreen.js, VirtueScreen.js, WelcomeScreen.js
-     - styles: Global styles
-       - globalStyles.js
-     - utilities: Utility functions
-       - FetchWrapper.js
-     - utils: Additional utilities
-       - NotificationsManager.js, pointsSystem.js
-*/

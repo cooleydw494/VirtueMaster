@@ -1,14 +1,12 @@
+const activities = {
+  check_daily_virtue: { points: 5 },
+  complete_reflection: { points: 10 },
+  reach_weekly_goal: { points: 50 },
+  // other activities here...
+};
+
 const pointsEarned = (activityType) => {
-  switch (activityType) {
-    case 'check_daily_virtue':
-      return 5;
-    case 'complete_reflection':
-      return 10;
-    case 'reach_weekly_goal':
-      return 50;
-    default:
-      return 0;
-  }
+  return activities[activityType]?.points || 0;
 };
 
 const updatePoints = ({ points, activityType }) => {
@@ -75,15 +73,12 @@ Project Overview:
        - background-image.svg, logo.svg: SVG files
    - src: App components, screens, styles & utilities
      - components: Reusable components
-       - Button.js, Card.js, Header.js, ProgressChart.js, ResourceLibrary.js
-     - database: DB connection & scripts
-       - connect.js, createBaseTables.js, createBaseTables.sql, seedTestData.js, seedTestData.sql
+       - Button.js, Card.js, Header.js, Input.js, Text.js, TouchableOpacity.js
      - screens: App screens
-       - CommunityScreen.js, GoalsScreen.js, HomeScreen.js, ProgressScreen.js, SettingsScreen.js, SignInScreen.js, SignUpScreen.js, VirtueScreen.js, WelcomeScreen.js
-     - styles: Global styles
-       - globalStyles.js
-     - utilities: Utility functions
-       - FetchWrapper.js
-     - utils: Additional utilities
-       - NotificationsManager.js, pointsSystem.js
+       - Home.js, Login.js, Register.js, SplashScreen.js, VirtueDetails.js, VirtueList.js, WeeklyFocus.js
+     - styles: App styles
+       - globalStyles.js: Base styles
+     - utils: App utilities
+       - connect.js: Connect to DB
+       - pointsSystem.js: Points & rewards system
 */
