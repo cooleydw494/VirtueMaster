@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ActivityIndicator, Alert, Linking } from 'react-native';
 import { globalStyles, colors } from '../styles/globalStyles';
 import firebase from 'firebase';
+import { NavigationContainer, createStackNavigator, createBottomTabNavigator, Ionicons } from '@react-navigation';
 
 const SignUpScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
