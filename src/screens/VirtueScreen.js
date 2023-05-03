@@ -40,81 +40,47 @@ VirtueScreen.propTypes = {
 
 export default VirtueScreen;
 
-/* CodeMonkey Comments:
-
-- VirtueScreen.js is the screen for each virtue in the VirtueMaster app.
-- It receives the title and description of a virtue as props.
-- Users can toggle a checkbox to indicate whether they practiced the virtue for the day.
+/*
+TODO:
+- Utilize database
 - A reflection prompt is provided for users to contemplate the effects of that virtue on their life.
-*/
-/* CodeMonkey Comments:
-
-- VirtueScreen.js is the screen for each virtue in the VirtueMaster app.
-- It receives the title and description of a virtue as props.
-- Users can toggle a checkbox to indicate whether they practiced the virtue for the day.
-- A reflection prompt is provided for users to contemplate the effects of that virtue on their life.
-*/
-
-/* Proposed CodeMonkey Changes:
-
 - Implement a function that saves the user's input when the checkbox is toggled.
 - The function should be triggered on the onPress event of the CheckBox component.
 - The user's input should be submitted to the backend, presumably through an API or query.
-
-Please note that due to limited information about the backend, a precise implementation cannot be provided at this moment. Adjust this code based on the backend's design.
 */
-
-// Task 3: Develop the Virtue Screen with detailed information and daily tracking
-// 1. Design the layout of the Virtue Screen, showcasing detailed information about the selected virtue in an intuitive manner.
-// 2. Implement a daily tracking feature allowing users to rate their performance on the selected virtue.
-// 3. Display historical tracking data in a visually appealing format, such as charts, graphs, or calendars.
-// 4. Offer additional resources, tips, or challenges related to the specific virtue in order to keep users engaged.
-// 5. Integrate with the Firebase database to store and retrieve user tracking data and other virtue resources.
-// 6. Optimize the user interface for better readability and navigation experience.
-// 7. Test and refine the Virtue Screen for effective user engagement.
 /*
-Project Overview:
+  VirtueMaster PostgreSQL Database Usage Guide
+  Purpose: Utility module for PostgreSQL/Firestore interactions.
+  Exported from database/connect.js:
+- pool, firestore
+- getUser(uid)
+- createUser(data)
+- updateUser(uid, updates)
+- getAllVirtues()
+- getVirtue(id)
+- getUserVirtue(uid, vid)
+- updateUserVirtue(uid, vid, updates)
+- getDailyVirtueEntry(uid, vid, date)
+- createDailyVirtueEntry(data)
+- updateDailyVirtueEntry(uid, vid, date, updates)
+- getAllMilestoneDefinitions()
+- getMilestoneDefinition(mid)
+- getMilestone(uid, mid)
+- createMilestone(uid, data)
+- getUserMilestone(uid, mid)
 
-1. globalStyles.js: Base styles
-   - container, titleText, paragraph, input, button, buttonText
-   Usage: globalStyles.container, etc.
-2. PostgreSQL DB: Tables & Columns
-   - users: firebase_uid, email, display_name, provider, profile_picture_url, points, rewards, created_at, updated_at
-   - virtues: name, description, short_description, icon_name, created_at, updated_at
-   - user_virtues: current_streak, longest_streak, total_days, total_successes, total_failures
-   - daily_virtue_entries: entry_date, status, notes, rating
-   - milestone_definitions: name, description, progress_requirement, icon_name, created_at, updated_at
-   - milestones: achieved_date
-   - user_milestones: notes, rating
-   - goals: title, description, target_date, status
-   - notifications: title, message, is_read, created_at, updated_at
-   - weekly_focus_virtues: start_date, end_date
-   - focus_virtue_entries: entry_date, status, notes, rating
-   - points_log: points, description, created_at
-   - rewards_log: rewards, description, created_at
-3. connect.js: Connect to DB
-   - Import 'pg', 'dotenv', create & export 'Pool' instance
-   Usage: Import 'pool' in other modules to query the database
-4. Directory Structure:
-   - App.js: Main entry point
-   - README.md: Documentation
-   - assets: Images & SVGs
-     - custom-pngs: PNG files
-       - logo.png: App logo (PNG)
-     - custom-svgs: SVG files & components
-       - BackgroundImage.js, Logo.js: SVG components
-       - background-image.svg, logo.svg: SVG files
-   - src: App components, screens, styles & utilities
-     - components: Reusable components
-       - Button.js, Card.js, Header.js, ProgressChart.js, ResourceLibrary.js
-     - database: DB connection & scripts
-       - connect.js, createBaseTables.js, createBaseTables.sql, seedTestData.js, seedTestData.sql
-     - screens: App screens
-       - CommunityScreen.js, GoalsScreen.js, HomeScreen.js, ProgressScreen.js, SettingsScreen.js, SignInScreen.js, SignUpScreen.js, VirtueScreen.js, WelcomeScreen.js
-     - styles: Global styles
-       - globalStyles.js
-     - utilities: Utility functions
-       - FetchWrapper.js
-     - utils: Additional utilities
-       - NotificationsManager.js, pointsSystem.js
+VirtueMaster PostgreSQL Database Schema:
+- users: firebase_uid, email, display_name, provider, profile_picture_url, points, rewards, created_at, updated_at
+- virtues: id, name, description, short_description, icon_name, created_at, updated_at
+- user_virtues: user_id, virtue_id, current_streak, longest_streak, total_days, total_successes, total_failures
+- daily_virtue_entries: user_id, virtue_id, entry_date, status, notes, rating
+- milestone_definitions: id, name, description, progress_requirement, icon_name, created_at, updated_at
+- milestones: user_id, milestone_definition_id, achieved_date
+- user_milestones: user_id, milestone_id, notes, rating
+- goals: user_id, title, description, target_date, status
+- notifications: user_id, title, message, is_read, created_at, updated_at
+- weekly_focus_virtues: user_id, virtue_id, start_date, end_date
+- focus_virtue_entries: user_id, focus_virtue_id, entry_date, status, notes, rating
+- points_log: user_id, points, description, created_at
+- rewards_log: user_id, rewards, description, created_at
 */

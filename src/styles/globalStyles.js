@@ -6,6 +6,9 @@ const colors = {
   background: '#F5F5F5',
   text: '#424242',
   accent: '#81C784',
+  error: '#ce3434',
+  white: '#FFFFFF',
+  black: '#000000',
 };
 
 const globalStyles = StyleSheet.create({
@@ -160,79 +163,31 @@ const globalStyles = StyleSheet.create({
     backgroundColor: colors.background,
     paddingVertical: 10,
   },
+  errorText: {
+    color: colors.error,
+    // implement styles for errorText
+  },
+  linkText: {
+    color: colors.accent,
+    // implement styles for linkText
+  },
+  checkboxContainer: {
+    // implement styles for checkboxContainer
+  }
 });
 
 export { globalStyles, colors };
 
-
-/* CodeMonkey Comments:
-
-- This globalStyles.js file contains centralized styles and colors for the VirtueMaster app.
-- The included styles are used across the app, making it easier to create a consistent user interface and modify styles globally.
-*//* CodeMonkey: This file contains the global styles for the VirtueMaster app. It defines styles and colors, which are well-structured and easy to follow.*/
-
-
-// Task 22: Add a dark mode option for user preference and comfort
-// - Create a new set of color variables for dark mode (e.g., darkColors).
-// - Implement a toggle in the app's Settings Screen to switch between light and dark mode.
-// - Connect the toggle's state to a global state (using Redux or React Context) so the theme colors can be changed throughout the app.
-// - Modify components to use the appropriate color variables based on the theme.
-// - Test the app to ensure all components respect the dark mode settings and are displayed correctly.
-// - Make sure the dark mode has good contrast and is accessible to users with visual impairments.
-
-
-// Task 20: Optimize the app for different screen sizes and orientations
-// - Research and implement a responsive design approach using React Native's built-in features like flexbox, percentages, and relative dimensions.
-// - Adopt the method useStateDimensions for managing orientation changes (provided by 'react-native-hooks').
-// - Create different style configurations depending on the screen size and device orientation.
-// - Test the app on various devices, including phones and tablets with different screen sizes and multiple orientations.
-// - Ensure the usability of the app is not compromised in different screen sizes and orientations.
-// - Review the design and layout to maintain a user-friendly interface on all devices and orientations.
-
-// Task 21: Follow accessibility guidelines for a more inclusive user experience
-// 1. Ensure text sizes and colors are legible, and contrast ratios meet accessibility standards.
-// 2. Make sure interactive elements like buttons and links have sufficient size for easy interaction.
-// 3. Add alternative text for images and other non-text content for screen reader users.
-// 4. Organize content through semantic HTML for better screen reader support.
-// 5. Provide keyboard navigation and focus management, making sure all elements can be accessed using keyboard only.
-// 6. Test the app using various accessibility tools and address any issues identified.
-
-/* CodeMonkey Comments:
-
-- globalStyles.js holds the centralized styles and colors for the VirtueMaster app, providing a consistent look and feel throughout the application.
-- The globalStyles object includes predefined styles for common elements like containers, text, and buttons which are exported and reused in various components and screens.
-
-Recommendations for improvements:
-
-1. Consider adding support for dark mode and additional themes, providing users with more options for personalization.
-2. Optimize the app for different screen sizes and orientations, ensuring a user-friendly experience on all devices.
-3. Review and implement accessibility guidelines to ensure a more inclusive and accessible user experience.
+/*
+TODO:
+- add support for dark mode, creating a new set of color variables for dark mode (e.g., darkColors).
+- Optimize the app for different screen sizes and orientations, ensuring a user-friendly experience on all devices.
+- Adopt the method useStateDimensions for managing orientation changes (provided by 'react-native-hooks')
+- Ensure text sizes and colors are legible, and contrast ratios meet accessibility standards
 */
 
 /*
 Project Overview:
-
-1. globalStyles.js: Base styles
-   - container, titleText, paragraph, input, button, buttonText
-   Usage: globalStyles.container, etc.
-2. PostgreSQL DB: Tables & Columns
-   - users: firebase_uid, email, display_name, provider, profile_picture_url, points, rewards, created_at, updated_at
-   - virtues: name, description, short_description, icon_name, created_at, updated_at
-   - user_virtues: current_streak, longest_streak, total_days, total_successes, total_failures
-   - daily_virtue_entries: entry_date, status, notes, rating
-   - milestone_definitions: name, description, progress_requirement, icon_name, created_at, updated_at
-   - milestones: achieved_date
-   - user_milestones: notes, rating
-   - goals: title, description, target_date, status
-   - notifications: title, message, is_read, created_at, updated_at
-   - weekly_focus_virtues: start_date, end_date
-   - focus_virtue_entries: entry_date, status, notes, rating
-   - points_log: points, description, created_at
-   - rewards_log: rewards, description, created_at
-3. connect.js: Connect to DB
-   - Import 'pg', 'dotenv', create & export 'Pool' instance
-   Usage: Import 'pool' in other modules to query the database
-4. Directory Structure:
    - App.js: Main entry point
    - README.md: Documentation
    - assets: Images & SVGs

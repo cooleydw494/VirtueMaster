@@ -33,79 +33,44 @@ const ProgressScreen = () => {
 };
 
 export default ProgressScreen;
-
-/* CodeMonkey Comments:
-
-- ProgressScreen.js will display the progress of virtues for the user.
-- The screen currently contains dummy data for demonstration purposes.
-- The ProgressChart component is commented out, and it should be imported and used when available to display the progress for each virtue in a visually appealing manner.
-- Uncomment the import, ProgressChart component usage, and the map function when the ProgressChart component is ready.
-*/
-import ProgressChart from '../components/ProgressChart';
-{/*       {progressData.map((virtueData, index) => (
-        <ProgressChart key={index} virtueData={virtueData} />
-      ))} */}
-
-// Task 4: Design the Progress Screen to visualize progress using charts and graphs
-// - Update or replace the dummy data with real user data fetched from the backend or API.
-// - Ensure the ProgressChart component is imported correctly and update its implementation accordingly to display intuitive charts and graphs.
-// - Consider using popular charting libraries such as Recharts or D3.js to create visually appealing and customizable graphics.
-// - Test different chart types to determine the best method for presenting the user's progress data.
-// - Be mindful of accessible design and ensure the charts can be read and understood by all users.
-
-
-// Task 13: Foster user engagement and retention
-// ProgressScreen.js
-// 1. Display the user's progress in a visually appealing and easy-to-understand way.
-// 2. Use different types of visualizations, such as bar charts, line charts, or pie charts, to represent various aspects of the user's progress.
-// 3. Enable users to interactively analyze their progress by customizing date ranges, chart types, or filtering options.
-// 4. Provide insights, recommendations, or congratulatory messages based on the user's achievements to encourage continued usage.
-// 5. Enhance the UX and UI of the Progress Screen to make it more engaging and informative.
-// 6. Continuously refine the Progress Screen based on user feedback and engagement metrics.
-
 /*
-Project Overview:
+TODO:
+- Update or replace the dummy data with real user data fetched from the database
+- display the progress of virtues for the user in a visually appealing and easy-to-understand way.
+ */
+/*
+  VirtueMaster PostgreSQL Database Usage Guide
+  Purpose: Utility module for PostgreSQL/Firestore interactions.
+  Exported from database/connect.js:
+- pool, firestore
+- getUser(uid)
+- createUser(data)
+- updateUser(uid, updates)
+- getAllVirtues()
+- getVirtue(id)
+- getUserVirtue(uid, vid)
+- updateUserVirtue(uid, vid, updates)
+- getDailyVirtueEntry(uid, vid, date)
+- createDailyVirtueEntry(data)
+- updateDailyVirtueEntry(uid, vid, date, updates)
+- getAllMilestoneDefinitions()
+- getMilestoneDefinition(mid)
+- getMilestone(uid, mid)
+- createMilestone(uid, data)
+- getUserMilestone(uid, mid)
 
-1. globalStyles.js: Base styles
-   - container, titleText, paragraph, input, button, buttonText
-   Usage: globalStyles.container, etc.
-2. PostgreSQL DB: Tables & Columns
-   - users: firebase_uid, email, display_name, provider, profile_picture_url, points, rewards, created_at, updated_at
-   - virtues: name, description, short_description, icon_name, created_at, updated_at
-   - user_virtues: current_streak, longest_streak, total_days, total_successes, total_failures
-   - daily_virtue_entries: entry_date, status, notes, rating
-   - milestone_definitions: name, description, progress_requirement, icon_name, created_at, updated_at
-   - milestones: achieved_date
-   - user_milestones: notes, rating
-   - goals: title, description, target_date, status
-   - notifications: title, message, is_read, created_at, updated_at
-   - weekly_focus_virtues: start_date, end_date
-   - focus_virtue_entries: entry_date, status, notes, rating
-   - points_log: points, description, created_at
-   - rewards_log: rewards, description, created_at
-3. connect.js: Connect to DB
-   - Import 'pg', 'dotenv', create & export 'Pool' instance
-   Usage: Import 'pool' in other modules to query the database
-4. Directory Structure:
-   - App.js: Main entry point
-   - README.md: Documentation
-   - assets: Images & SVGs
-     - custom-pngs: PNG files
-       - logo.png: App logo (PNG)
-     - custom-svgs: SVG files & components
-       - BackgroundImage.js, Logo.js: SVG components
-       - background-image.svg, logo.svg: SVG files
-   - src: App components, screens, styles & utilities
-     - components: Reusable components
-       - Button.js, Card.js, Header.js, ProgressChart.js, ResourceLibrary.js
-     - database: DB connection & scripts
-       - connect.js, createBaseTables.js, createBaseTables.sql, seedTestData.js, seedTestData.sql
-     - screens: App screens
-       - CommunityScreen.js, GoalsScreen.js, HomeScreen.js, ProgressScreen.js, SettingsScreen.js, SignInScreen.js, SignUpScreen.js, VirtueScreen.js, WelcomeScreen.js
-     - styles: Global styles
-       - globalStyles.js
-     - utilities: Utility functions
-       - FetchWrapper.js
-     - utils: Additional utilities
-       - NotificationsManager.js, pointsSystem.js
+VirtueMaster PostgreSQL Database Schema:
+- users: firebase_uid, email, display_name, provider, profile_picture_url, points, rewards, created_at, updated_at
+- virtues: id, name, description, short_description, icon_name, created_at, updated_at
+- user_virtues: user_id, virtue_id, current_streak, longest_streak, total_days, total_successes, total_failures
+- daily_virtue_entries: user_id, virtue_id, entry_date, status, notes, rating
+- milestone_definitions: id, name, description, progress_requirement, icon_name, created_at, updated_at
+- milestones: user_id, milestone_definition_id, achieved_date
+- user_milestones: user_id, milestone_id, notes, rating
+- goals: user_id, title, description, target_date, status
+- notifications: user_id, title, message, is_read, created_at, updated_at
+- weekly_focus_virtues: user_id, virtue_id, start_date, end_date
+- focus_virtue_entries: user_id, focus_virtue_id, entry_date, status, notes, rating
+- points_log: user_id, points, description, created_at
+- rewards_log: user_id, rewards, description, created_at
 */
