@@ -177,36 +177,3 @@ const globalStyles = StyleSheet.create({
 });
 
 export { globalStyles, colors };
-
-/*
-TODO:
-- add support for dark mode, creating a new set of color variables for dark mode (e.g., darkColors).
-- Optimize the app for different screen sizes and orientations, ensuring a user-friendly experience on all devices.
-- Adopt the method useStateDimensions for managing orientation changes (provided by 'react-native-hooks')
-- Ensure text sizes and colors are legible, and contrast ratios meet accessibility standards
-*/
-
-/*
-Project Overview:
-   - App.js: Main entry point
-   - README.md: Documentation
-   - assets: Images & SVGs
-     - custom-pngs: PNG files
-       - logo.png: App logo (PNG)
-     - custom-svgs: SVG files & components
-       - BackgroundImage.js, Logo.js: SVG components
-       - background-image.svg, logo.svg: SVG files
-   - src: App components, screens, styles & utilities
-     - components: Reusable components
-       - Button.js, Card.js, Header.js, ProgressChart.js, ResourceLibrary.js
-     - database: DB connection & scripts
-       - connect.js, createBaseTables.js, createBaseTables.sql, seedTestData.js, seedTestData.sql
-     - screens: App screens
-       - CommunityScreen.js, GoalsScreen.js, HomeScreen.js, ProgressScreen.js, SettingsScreen.js, SignInScreen.js, SignUpScreen.js, VirtueScreen.js, WelcomeScreen.js
-     - styles: Global styles
-       - globalStyles.js
-     - utilities: Utility functions
-       - FetchWrapper.js
-     - utils: Additional utilities
-       - NotificationsManager.js, pointsSystem.js
-*/

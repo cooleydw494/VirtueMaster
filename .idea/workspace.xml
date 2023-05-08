@@ -7,11 +7,14 @@
     <list default="true" id="5e5027ef-2519-4fd3-bf8c-afe202d205b7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ProgressChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProgressChart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ResourceLibrary.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ResourceLibrary.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/connect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/connect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/createBaseTables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/createBaseTables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/createBaseTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/createBaseTables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/seedTestData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/seedTestData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/GoalsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/GoalsScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomeScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/ProgressScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/ProgressScreen.js" afterDir="false" />
@@ -44,27 +47,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/david/local-git/Auto-GPT/autogpt/auto_gpt_workspace/VirtueMaster",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "Errors",
-    "ts.external.directory.path": "/Users/david/local-git/Auto-GPT/autogpt/auto_gpt_workspace/VirtueMaster/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/david/local-git/Auto-GPT/autogpt/auto_gpt_workspace/VirtueMaster&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/david/local-git/Auto-GPT/autogpt/auto_gpt_workspace/VirtueMaster/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "TEXT"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
