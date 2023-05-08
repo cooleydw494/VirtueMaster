@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View, Text, StyleSheet } from 'react-native';
 
 const Header = ({ title }) => {
@@ -7,6 +8,14 @@ const Header = ({ title }) => {
       <Text style={styles.headerText}>{title}</Text>
     </View>
   );
+};
+
+Header.propTypes = {
+  title: PropTypes.string
+};
+
+Header.defaultProps = {
+  title: 'Default Title'
 };
 
 const styles = StyleSheet.create({
