@@ -1,11 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View, Text, FlatList } from 'react-native';
 import GoalItem from '../components/GoalItem';
 import { globalStyles, colors } from '../styles/globalStyles';
 
-const GoalsScreen = () => {
-  const goals = []; // Replace with actual goals data
-
+const GoalsScreen = ({ goals }) => {
   const renderItem = ({ item }) => (
     <GoalItem title={item.title} description={item.description} />
   );
@@ -23,6 +22,16 @@ const GoalsScreen = () => {
       />
     </View>
   );
+};
+
+GoalsScreen.propTypes = {
+  goals: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default GoalsScreen;
