@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native';
+import React, { useState, useCallback } from 'react';
+import { View, Text, TextInput, TouchableOpacity, FlatList, Linking, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 
-const ResourceLibrary = () => {
+const ResourceLibrary = ({ resourceData }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredResources, setFilteredResources] = useState(resourceData);
 
-  const searchResources = term => {
+  const searchResources = useCallback(term => {
     const searchResults = resourceData.filter(resource =>
       resource.title.toLowerCase().includes(term.toLowerCase())
     );
     setFilteredResources(searchResults);
-  };
+  }, [resourceData]);
 
-  const clearSearch = () => {
+  const clearSearch = useCallback(() => {
     setSearchTerm('');
     setFilteredResources(resourceData);
-  };
+  }, [resourceData]);
 
   return (
     <View>
@@ -42,6 +43,10 @@ const ResourceLibrary = () => {
       />
     </View>
   );
+};
+
+ResourceLibrary.propTypes = {
+  resourceData: PropTypes.array.isRequired,
 };
 
 export default ResourceLibrary;
