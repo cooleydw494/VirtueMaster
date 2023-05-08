@@ -1,22 +1,26 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { globalStyles, colors } from '../styles/globalStyles';
-import {getAuth} from "firebase/auth";
+import { getAuth } from "firebase/auth";
 
 const SettingsScreen = ({ navigation }) => {
-
     const auth = getAuth();
 
-    const handleSignOut = () => {
+    // Handles user sign out
+    const handleSignOut = useCallback(() => {
         auth.signOut()
             .then(() => {
                 console.log('User signed out!');
                 navigation.navigate('WelcomeScreen');
+            })
+            .catch((error) => {
+                console.log('Error signing out:', error);
             });
-    };
+    }, [auth, navigation]);
 
-    const handleAccountDeletion = () => {
+    // Handles user account deletion
+    const handleAccountDeletion = useCallback(() => {
         auth.currentUser
             .delete()
             .then(() => {
@@ -26,43 +30,43 @@ const SettingsScreen = ({ navigation }) => {
             .catch((error) => {
                 console.log('Error deleting user account:', error);
             });
-    };
+    }, [auth, navigation]);
 
-    const handleResetProgress = () => {
+    // Resets the user's progress data
+    const handleResetProgress = useCallback(() => {
         // Reset the user's progress data
-    };
+    }, []);
 
+    return (
+        <View style={globalStyles.container}>
+            <Text style={globalStyles.title}>Settings</Text>
 
-  return (
-    <View style={globalStyles.container}>
-      <Text style={globalStyles.title}>Settings</Text>
+            <TouchableOpacity
+                style={[globalStyles.button, { backgroundColor: colors.secondary }]}
+                onPress={handleSignOut}
+            >
+                <Text style={globalStyles.buttonText}>Sign Out</Text>
+            </TouchableOpacity>
 
-      <TouchableOpacity
-        style={[globalStyles.button, { backgroundColor: colors.secondary }]}
-        onPress={handleSignOut}
-      >
-        <Text style={globalStyles.buttonText}>Sign Out</Text>
-      </TouchableOpacity>
+            <TouchableOpacity
+                style={[globalStyles.button, { backgroundColor: colors.secondary }]}
+                onPress={handleResetProgress}
+            >
+                <Text style={globalStyles.buttonText}>Reset Progress</Text>
+            </TouchableOpacity>
 
-      <TouchableOpacity
-        style={[globalStyles.button, { backgroundColor: colors.secondary }]}
-        onPress={handleResetProgress}
-      >
-        <Text style={globalStyles.buttonText}>Reset Progress</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={[globalStyles.button, { backgroundColor: colors.secondary }]}
-        onPress={handleAccountDeletion}
-      >
-        <Text style={globalStyles.buttonText}>Delete Account</Text>
-      </TouchableOpacity>
-    </View>
-  );
+            <TouchableOpacity
+                style={[globalStyles.button, { backgroundColor: colors.secondary }]}
+                onPress={handleAccountDeletion}
+            >
+                <Text style={globalStyles.buttonText}>Delete Account</Text>
+            </TouchableOpacity>
+        </View>
+    );
 };
 
 SettingsScreen.propTypes = {
-  navigation: PropTypes.object.isRequired,
+    navigation: PropTypes.object.isRequired,
 };
 
 export default SettingsScreen;
