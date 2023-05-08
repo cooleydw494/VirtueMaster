@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
 import PropTypes from 'prop-types';
 import { globalStyles, colors } from '../styles/globalStyles';
 import Card from "../components/Card"
 import pool from '../database/connect';
 
 const HomeScreen = ({ navigation }) => {
+  if (!navigation) {
+    throw new Error('Navigation prop is missing');
+  }
+
   const [virtues, setVirtues] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -20,7 +24,7 @@ const HomeScreen = ({ navigation }) => {
       }
     };
 
-    fetchVirtues(); // editor says "Promise returned from fetchVirtues is ignored
+    fetchVirtues();
   }, []);
 
   const handlePress = useCallback(
@@ -30,10 +34,12 @@ const HomeScreen = ({ navigation }) => {
     [navigation]
   );
 
+  const keyExtractor = useCallback((item) => `${item.id}-${item.title}`, []);
+
   if (loading) {
     return (
       <View style={globalStyles.container}>
-        <Text>Loading...</Text>
+        <ActivityIndicator size="large" color={colors.primary} />
       </View>
     );
   }
@@ -51,7 +57,7 @@ const HomeScreen = ({ navigation }) => {
             </Card>
           </TouchableOpacity>
         )}
-        keyExtractor={(item) => item.id}
+        keyExtractor={keyExtractor}
       />
     </View>
   );
@@ -61,4 +67,4 @@ HomeScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
 
-export default HomeScreen;
+export default React.memo(HomeScreen);
