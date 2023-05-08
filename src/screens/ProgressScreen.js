@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import ProgressChart from '../components/ProgressChart';
 import { globalStyles, colors } from '../styles/globalStyles';
 
@@ -25,9 +25,13 @@ const ProgressScreen = () => {
         <Text style={globalStyles.subtitle}>Points: {userPoints}</Text>
         <Text style={globalStyles.subtitle}>Rewards: {userRewards}</Text>
         <Text style={globalStyles.subtitle}>Your Virtue Progress:</Text>
-        {progressData.map((virtueData, index) => (
-            <ProgressChart key={index} virtueData={virtueData} style={[globalStyles.progressChart, {backgroundColor: colors.primary}]} />
-        ))}
+        <FlatList
+          data={progressData}
+          renderItem={({ item }) => (
+            <ProgressChart key={item.virtue} virtueData={item} style={[globalStyles.progressChart, {backgroundColor: colors.primary}]} />
+          )}
+          keyExtractor={item => item.virtue}
+        />
       </View>
   );
 };
