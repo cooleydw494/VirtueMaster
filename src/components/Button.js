@@ -4,6 +4,11 @@ import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { globalStyles, colors } from '../styles/globalStyles';
 
 // Button component for handling user interactions
+// Props:
+// - title: The text displayed on the button
+// - onPress: The function to be called when the button is pressed
+// - style: Optional additional styles for the button container
+// - textStyle: Optional additional styles for the button text
 const Button = ({ title, onPress, style, textStyle }) => {
   return (
     <TouchableOpacity onPress={onPress} style={[styles.button, style]}>
