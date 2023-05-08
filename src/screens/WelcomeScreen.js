@@ -4,7 +4,7 @@ import { globalStyles } from '../styles/globalStyles';
 import BackgroundImage from '../../assets/custom-svgs/BackgroundImage.js';
 import Logo from '../../assets/custom-svgs/Logo.js';
 
-const WelcomeScreen = ({ navigation }) => {
+const WelcomeScreen = React.memo(({ navigation }) => {
   return (
     <View style={globalStyles.container}>
       <View style={globalStyles.overlay}>
@@ -25,10 +25,10 @@ const WelcomeScreen = ({ navigation }) => {
           onPress={() => navigation.navigate('SignUpScreen')}
         >
           <Text style={globalStyles.buttonText}>Sign Up</Text>
-        </TouchableOpacity>
+        </ TouchableOpacity>
       </View>
     </View>
   );
-};
+});
 
 export default WelcomeScreen;
