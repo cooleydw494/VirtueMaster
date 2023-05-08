@@ -38,7 +38,7 @@ const SignInScreen = ({ navigation }) => {
             {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
                 <View style={globalStyles.container}>
                     <Text style={globalStyles.title}>Sign In</Text>
-                    {error && <Text style={globalStyles.errorText}>{error}</Text>} /*editor says "Type Unknown is not assignable to React.ReactNode*/
+                    {error && <React.Fragment><Text style={globalStyles.errorText}>{error}</Text></React.Fragment>}
                     <Field
                         component={TextInput}
                         style={globalStyles.input}
@@ -49,6 +49,7 @@ const SignInScreen = ({ navigation }) => {
                         value={values.email}
                         keyboardType='email-address'
                         autoCompleteType='email'
+                        accessibilityLabel='Email input'
                     />
                     {errors.email && touched.email && <Text style={globalStyles.errorText}>{errors.email}</Text>}
                     <Field
@@ -61,9 +62,10 @@ const SignInScreen = ({ navigation }) => {
                         value={values.password}
                         secureTextEntry
                         autoCompleteType='password'
+                        accessibilityLabel='Password input'
                     />
                     {errors.password && touched.password && <Text style={globalStyles.errorText}>{errors.password}</Text>}
-                    <TouchableOpacity style={globalStyles.primaryButton} onPress={signIn} disabled={loading}>
+                    <TouchableOpacity style={globalStyles.primaryButton} onPress={handleSubmit} disabled={loading} accessibilityLabel='Sign In button'>
                         {loading ? (
                             <ActivityIndicator size='small' color={colors.white} />
                         ) : (
@@ -72,6 +74,7 @@ const SignInScreen = ({ navigation }) => {
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => navigation.navigate('SignUpScreen')}
+                        accessibilityLabel='Navigate to Sign Up screen'
                     >
                         <Text style={globalStyles.linkText}>
                             Don't have an account? Sign Up
