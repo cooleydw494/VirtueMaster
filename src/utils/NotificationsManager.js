@@ -14,7 +14,7 @@ export async function createChannel() {
 export async function scheduleDailyReminder(time) {
   await createChannel();
 
-  const trigger = { type: Notifee.Trigger.Type.TIME_INTERVAL, interval: 86400, repeat: true }; // editor says "unresolved variable Trigger"
+  const trigger = { type: Notifee.Trigger.Type.TIME_INTERVAL, interval: 86400, repeat: true };
   await Notifee.createTriggerNotification(
     {
       id: `daily-reminder-notification`,
@@ -29,7 +29,7 @@ export async function scheduleDailyReminder(time) {
         categoryId: 'DAILY_REMINDER',
       },
     },
-    { trigger: trigger } // code editor says "argument type is not assignable to parameter type Trigger"
+    { trigger: trigger }
   );
 }
 
