@@ -20,7 +20,7 @@ Card.defaultProps = {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: colors.cardBackground,
+    backgroundColor: colors.cardBackground || 'white',
     borderRadius: 5,
     marginVertical: 10,
     paddingHorizontal: 15,
