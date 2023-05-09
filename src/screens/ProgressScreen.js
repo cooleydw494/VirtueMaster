@@ -6,7 +6,7 @@ import { globalStyles, colors } from '../styles/globalStyles';
 
 const ProgressScreen = () => {
   // Dummy data for demonstration purposes
-  const progressData = [
+  const virtueProgressData = [
     { virtue: 'Humility', progress: 0.7 },
     { virtue: 'Patience', progress: 0.5 },
     { virtue: 'Charity', progress: 0.6 },
@@ -27,7 +27,7 @@ const ProgressScreen = () => {
         <Text style={globalStyles.subtitle}>Rewards: {userRewards}</Text>
         <Text style={globalStyles.subtitle}>Your Virtue Progress:</Text>
         <FlatList
-          data={progressData}
+          data={virtueProgressData}
           renderItem={({ item }) => (
             <ProgressChart key={item.virtue} virtueData={item} style={[globalStyles.progressChart, {backgroundColor: colors.primary}]} />
           )}
@@ -37,6 +37,11 @@ const ProgressScreen = () => {
   );
 };
 
-ProgressScreen.propTypes = {};
+ProgressScreen.propTypes = {
+  virtueProgressData: PropTypes.arrayOf(PropTypes.shape({
+    virtue: PropTypes.string.isRequired,
+    progress: PropTypes.number.isRequired,
+  })),
+};
 
 export default ProgressScreen;
