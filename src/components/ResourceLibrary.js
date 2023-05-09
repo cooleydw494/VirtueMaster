@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { View, Text, TextInput, TouchableOpacity, FlatList, Linking, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -18,6 +18,8 @@ const ResourceLibrary = ({ resourceData }) => {
     setFilteredResources(resourceData);
   }, [resourceData]);
 
+  const memoizedFilteredResources = useMemo(() => filteredResources, [filteredResources]);
+
   return (
     <View>
       <TextInput
@@ -30,7 +32,7 @@ const ResourceLibrary = ({ resourceData }) => {
         <Text>Clear</Text>
       </TouchableOpacity>
       <FlatList
-        data={filteredResources}
+        data={memoizedFilteredResources}
         keyExtractor={item => item.url}
         renderItem={({ item }) => (
           <View>
