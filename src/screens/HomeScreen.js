@@ -4,11 +4,10 @@ import PropTypes from 'prop-types';
 import { globalStyles, colors } from '../styles/globalStyles';
 import Card from "../components/Card"
 import pool from '../database/connect';
+import { useNavigation } from '@react-navigation/native';
 
-const HomeScreen = ({ navigation }) => {
-  if (!navigation) {
-    throw new Error('Navigation prop is missing');
-  }
+const HomeScreen = () => {
+  const navigation = useNavigation();
 
   const [virtues, setVirtues] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -61,10 +60,6 @@ const HomeScreen = ({ navigation }) => {
       />
     </View>
   );
-};
-
-HomeScreen.propTypes = {
-  navigation: PropTypes.object.isRequired,
 };
 
 export default React.memo(HomeScreen);
