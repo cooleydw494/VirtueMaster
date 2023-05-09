@@ -1,4 +1,4 @@
-import Notifee from '@notifee/react-native';
+import * as Notifee from '@notifee/react-native';
 
 const CHANNEL_ID = 'daily-reminder';
 
