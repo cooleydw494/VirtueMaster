@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, ViewPropTypes } from 'react-native';
 import { globalStyles, colors } from '../styles/globalStyles';
 const { primary } = colors;
 
@@ -12,7 +12,8 @@ const { primary } = colors;
 // - textStyle: Optional additional styles for the button text
 const Button = ({ title, onPress, style, textStyle }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.button, style]}>      <Text style={[globalStyles.text, styles.buttonText, textStyle]}>{title}</Text>
+    <TouchableOpacity onPress={onPress} style={[styles.button, style]}>
+      <Text style={[globalStyles.text, styles.buttonText, textStyle]}>{title}</Text>
     </TouchableOpacity>
   );
 };
@@ -20,8 +21,8 @@ const Button = ({ title, onPress, style, textStyle }) => {
 Button.propTypes = {
   title: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
-  style: PropTypes.object,
-  textStyle: PropTypes.object,
+  style: ViewPropTypes.style,
+  textStyle: ViewPropTypes.style,
 };
 
 Button.defaultProps = {
