@@ -1,23 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-class FetchWrapper {
-  constructor(baseUrl) {
-    this.baseUrl = baseUrl;
-  }
+function FetchWrapper(baseUrl) {
+  const [data, setData] = useState(null);
 
-  async get(endpoint) {
-    try {
-      const response = await fetch(`${this.baseUrl}${endpoint}`);
-      if (!response) throw new Error('Network error');
-      return this.handleResponse(response);
-    } catch (error) {
-      throw new Error(`GET request failed: ${error.message}`);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(`${baseUrl}`);
+        if (!response) throw new Error('Network error');
+        const jsonResponse = await handleResponse(response);
+        setData(jsonResponse);
+      } catch (error) {
+        throw new Error(`GET request failed: ${error.message}`);
+      }
     }
-  }
+    fetchData();
+  }, [baseUrl]);
 
-  async post(endpoint, data) {
+  async function post(endpoint, data) {
     try {
-      const response = await fetch(`${this.baseUrl}${endpoint}`, {
+      const response = await fetch(`${baseUrl}${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -25,13 +27,13 @@ class FetchWrapper {
         body: JSON.stringify(data),
       });
       if (!response) throw new Error('Network error');
-      return this.handleResponse(response);
+      return handleResponse(response);
     } catch (error) {
       throw new Error(`POST request failed: ${error.message}`);
     }
   }
 
-  async handleResponse(response) {
+  async function handleResponse(response) {
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.statusText}`);
     }
@@ -41,6 +43,8 @@ class FetchWrapper {
       throw new Error(`Parsing error: ${error.message}`);
     }
   }
+
+  return { data, post };
 }
 
 export default FetchWrapper;
