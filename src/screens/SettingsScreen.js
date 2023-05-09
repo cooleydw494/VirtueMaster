@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Alert } from 'react-native';
 import { globalStyles, colors } from '../styles/globalStyles';
 import { getAuth } from "firebase/auth";
 
@@ -21,15 +21,32 @@ const SettingsScreen = ({ navigation }) => {
 
     // Handles user account deletion
     const handleAccountDeletion = useCallback(() => {
-        auth.currentUser
-            .delete()
-            .then(() => {
-                console.log('User account deleted!');
-                navigation.navigate('WelcomeScreen');
-            })
-            .catch((error) => {
-                console.log('Error deleting user account:', error);
-            });
+        Alert.alert(
+            'Delete Account',
+            'Are you sure you want to delete your account? This action cannot be undone.',
+            [
+                {
+                    text: 'Cancel',
+                    style: 'cancel',
+                },
+                {
+                    text: 'Delete',
+                    onPress: () => {
+                        auth.currentUser
+                            .delete()
+                            .then(() => {
+                                console.log('User account deleted!');
+                                navigation.navigate('WelcomeScreen');
+                            })
+                            .catch((error) => {
+                                console.log('Error deleting user account:', error);
+                            });
+                    },
+                    style: 'destructive',
+                },
+            ],
+            { cancelable: false }
+        );
     }, [auth, navigation]);
 
     // Resets the user's progress data
