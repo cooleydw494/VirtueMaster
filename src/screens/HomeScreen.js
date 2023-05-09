@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, Text, FlatList, ActivityIndicator } from 'react-native';
 import PropTypes from 'prop-types';
 import { globalStyles, colors } from '../styles/globalStyles';
 import Card from "../components/Card"
@@ -11,6 +11,7 @@ const HomeScreen = () => {
 
   const [virtues, setVirtues] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchVirtues = async () => {
@@ -20,6 +21,8 @@ const HomeScreen = () => {
         setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
+        setError(error);
+        setLoading(false);
       }
     };
 
@@ -43,23 +46,33 @@ const HomeScreen = () => {
     );
   }
 
+  if (error) {
+    return (
+      <View style={globalStyles.container}>
+        <Text style={globalStyles.errorText}>Error fetching data. Please try again later.</Text>
+      </View>
+    );
+  }
+
   return (
     <View style={globalStyles.container}>
       <Text style={globalStyles.title}>Virtues</Text>
       <FlatList
         data={virtues}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => handlePress(item)}>
-            <Card>
-              <Text style={globalStyles.cardTitle}>{item.title}</Text>
-              <Text style={globalStyles.cardSubtitle}>{item.description}</Text>
-            </Card>
-          </TouchableOpacity>
+          <Card onPress={() => handlePress(item)}>
+            <Text style={globalStyles.cardTitle}>{item.title}</Text>
+            <Text style={globalStyles.cardSubtitle}>{item.description}</Text>
+          </Card>
         )}
         keyExtractor={keyExtractor}
       />
     </View>
   );
+};
+
+HomeScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };
 
 export default React.memo(HomeScreen);
