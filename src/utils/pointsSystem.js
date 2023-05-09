@@ -5,6 +5,11 @@ const activities = {
   // other activities here...
 };
 
+/**
+ * Calculates the points earned for a given activity type.
+ * @param {string} activityType - The type of activity to calculate points for.
+ * @returns {number} The number of points earned for the activity.
+ */
 const pointsEarned = (activityType) => {
   return activities[activityType]?.points || 0;
 };
