@@ -23,7 +23,7 @@ const SignUpScreen = ({ navigation }) => {
     return true;
   };
 
-  const signUp = useCallback(async () => {
+  const handleSignUp = useCallback(async () => {
     if (!validateForm()) {
       return;
     }
@@ -72,7 +72,7 @@ const SignUpScreen = ({ navigation }) => {
         autoCompleteType='password'
         autoCapitalize='none'
       />
-      <TouchableOpacity style={styles.primaryButton} onPress={signUp}>
+      <TouchableOpacity style={styles.primaryButton} onPress={handleSignUp}>
         {loading ? (
           <ActivityIndicator size='small' color='#FFFFFF' />
         ) : (
