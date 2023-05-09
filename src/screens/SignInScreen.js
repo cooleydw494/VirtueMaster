@@ -90,4 +90,6 @@ SignInScreen.propTypes = {
     navigation: PropTypes.object.isRequired,
 };
 
+SignInScreen.displayName = 'SignInScreen';
+
 export default SignInScreen;
