@@ -35,4 +35,8 @@ GoalsScreen.propTypes = {
   ),
 };
 
+GoalsScreen.defaultProps = {
+  goals: [],
+};
+
 export default GoalsScreen;
