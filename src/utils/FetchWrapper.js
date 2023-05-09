@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 function FetchWrapper(baseUrl) {
   const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -11,7 +12,7 @@ function FetchWrapper(baseUrl) {
         const jsonResponse = await handleResponse(response);
         setData(jsonResponse);
       } catch (error) {
-        throw new Error(`GET request failed: ${error.message}`);
+        setError(`GET request failed: ${error.message}`);
       }
     }
     fetchData();
@@ -44,7 +45,7 @@ function FetchWrapper(baseUrl) {
     }
   }
 
-  return { data, post };
+  return { data, post, error };
 }
 
 export default FetchWrapper;
