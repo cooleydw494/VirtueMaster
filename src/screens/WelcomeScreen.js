@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { globalStyles } from '../styles/globalStyles';
 import BackgroundImage from '../../assets/custom-svgs/BackgroundImage.js';
@@ -30,5 +31,9 @@ const WelcomeScreen = React.memo(({ navigation }) => {
     </View>
   );
 });
+
+WelcomeScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
 
 export default WelcomeScreen;
