@@ -14,6 +14,13 @@ const pointsEarned = (activityType) => {
   return activities[activityType]?.points || 0;
 };
 
+/**
+ * Updates the points based on the activity type.
+ * @param {Object} params - The parameters for updating points.
+ * @param {number} params.points - The current points.
+ * @param {string} params.activityType - The type of activity to update points for.
+ * @returns {number} The updated points.
+ */
 const updatePoints = ({ points, activityType }) => {
   const earnedPoints = pointsEarned(activityType);
   return points + earnedPoints;
