@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View, Text, FlatList } from 'react-native';
 import ProgressChart from '../components/ProgressChart';
 import { globalStyles, colors } from '../styles/globalStyles';
@@ -35,5 +36,7 @@ const ProgressScreen = () => {
       </View>
   );
 };
+
+ProgressScreen.propTypes = {};
 
 export default ProgressScreen;
