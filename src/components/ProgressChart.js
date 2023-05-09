@@ -27,7 +27,7 @@ const ProgressChart = ({ data: [{ value, color, label }], style }) => {
       <XAxis
         key='x-axis'
         style={{ marginTop: 10 }}
-        data=data
+        data={data}
         scale={scale.scaleBand}
         formatLabel={(value, index) => labels[index]}
         labelStyle={{ color: 'black' }}
