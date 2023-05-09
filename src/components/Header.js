@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, StyleSheet } from 'react-native';
 
+// Header component displays a title in a styled container
 const Header = ({ title }) => {
   return (
     <View style={styles.headerContainer}>

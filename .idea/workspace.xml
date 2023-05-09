@@ -4,30 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e5027ef-2519-4fd3-bf8c-afe202d205b7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProgressChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProgressChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ResourceLibrary.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ResourceLibrary.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/createBaseTables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/createBaseTables.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/createBaseTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/createBaseTables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/seedTestData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/seedTestData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/GoalsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/GoalsScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomeScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/ProgressScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/ProgressScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/SettingsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SettingsScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SignInScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/SignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SignUpScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/VirtueScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/VirtueScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/WelcomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/WelcomeScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/globalStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/globalStyles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/FetchWrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/FetchWrapper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/NotificationsManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/NotificationsManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/pointsSystem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/pointsSystem.js" afterDir="false" />
-    </list>
+    <list default="true" id="5e5027ef-2519-4fd3-bf8c-afe202d205b7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,6 +45,11 @@
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/utils" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
