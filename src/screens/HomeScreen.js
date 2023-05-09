@@ -71,8 +71,4 @@ const HomeScreen = () => {
   );
 };
 
-HomeScreen.propTypes = {
-  navigation: PropTypes.object.isRequired,
-};
-
 export default React.memo(HomeScreen);
