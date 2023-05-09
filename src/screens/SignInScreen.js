@@ -11,11 +11,11 @@ const SignInSchema = Yup.object().shape({
     password: Yup.string().min(6, 'Password must be at least 6 characters').required('Required'),
 });
 
-const SignInScreen = ({ navigation }) => {
+const useSignIn = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const signIn = async (values) => {
+    const signIn = async (values, navigation) => {
         setLoading(true);
         setError(null);
         const auth = getAuth();
@@ -29,11 +29,17 @@ const SignInScreen = ({ navigation }) => {
         }
     };
 
+    return { signIn, loading, error, setLoading, setError };
+};
+
+const SignInScreen = ({ navigation }) => {
+    const { signIn, loading, error, setLoading, setError } = useSignIn();
+
     return (
         <Formik
             initialValues={{ email: '', password: '' }}
             validationSchema={SignInSchema}
-            onSubmit={signIn}
+            onSubmit={(values) => signIn(values, navigation)}
         >
             {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
                 <View style={globalStyles.container}>
