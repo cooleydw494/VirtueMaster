@@ -5,11 +5,11 @@ import { globalStyles, colors } from '../styles/globalStyles';
 import { getAuth } from "firebase/auth";
 
 const SettingsScreen = ({ navigation }) => {
-    const auth = getAuth();
+    const firebaseAuth = getAuth();
 
     // Handles user sign out
     const handleSignOut = useCallback(() => {
-        auth.signOut()
+        firebaseAuth.signOut()
             .then(() => {
                 console.log('User signed out!');
                 navigation.navigate('WelcomeScreen');
@@ -17,7 +17,7 @@ const SettingsScreen = ({ navigation }) => {
             .catch((error) => {
                 console.log('Error signing out:', error);
             });
-    }, [auth, navigation]);
+    }, [firebaseAuth, navigation]);
 
     // Handles user account deletion
     const handleAccountDeletion = useCallback(() => {
@@ -32,7 +32,7 @@ const SettingsScreen = ({ navigation }) => {
                 {
                     text: 'Delete',
                     onPress: () => {
-                        auth.currentUser
+                        firebaseAuth.currentUser
                             .delete()
                             .then(() => {
                                 console.log('User account deleted!');
@@ -47,11 +47,28 @@ const SettingsScreen = ({ navigation }) => {
             ],
             { cancelable: false }
         );
-    }, [auth, navigation]);
+    }, [firebaseAuth, navigation]);
 
     // Resets the user's progress data
     const handleResetProgress = useCallback(() => {
-        // Reset the user's progress data
+        Alert.alert(
+            'Reset Progress',
+            'Are you sure you want to reset your progress? This action cannot be undone.',
+            [
+                {
+                    text: 'Cancel',
+                    style: 'cancel',
+                },
+                {
+                    text: 'Reset',
+                    onPress: () => {
+                        // Reset the user's progress data
+                    },
+                    style: 'destructive',
+                },
+            ],
+            { cancelable: false }
+        );
     }, []);
 
     return (
