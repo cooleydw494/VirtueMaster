@@ -8,6 +8,7 @@ class FetchWrapper {
   async get(endpoint) {
     try {
       const response = await fetch(`${this.baseUrl}${endpoint}`);
+      if (!response) throw new Error('Network error');
       return this.handleResponse(response);
     } catch (error) {
       throw new Error(`GET request failed: ${error.message}`);
@@ -23,6 +24,7 @@ class FetchWrapper {
         },
         body: JSON.stringify(data),
       });
+      if (!response) throw new Error('Network error');
       return this.handleResponse(response);
     } catch (error) {
       throw new Error(`POST request failed: ${error.message}`);
