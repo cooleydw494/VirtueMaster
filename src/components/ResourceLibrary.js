@@ -2,6 +2,15 @@ import React, { useState, useCallback, useMemo } from 'react';
 import { View, Text, TextInput, TouchableOpacity, FlatList, Linking, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
+const ResourceItem = ({ item }) => (
+  <View>
+    <Text>{item.title}</Text>
+    <Text>{item.author}</Text>
+    <Text>{item.publicationYear}</Text>
+    <Text onPress={() => Linking.openURL(item.url)}>View Resource</Text>
+  </View>
+);
+
 const ResourceLibrary = ({ resourceData }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredResources, setFilteredResources] = useState(resourceData);
@@ -13,7 +22,7 @@ const ResourceLibrary = ({ resourceData }) => {
     setFilteredResources(searchResults);
   }, [resourceData]);
 
-  const clearSearch = useCallback(() => {
+  const clear_search_callback = useCallback(() => {
     setSearchTerm('');
     setFilteredResources(resourceData);
   }, [resourceData]);
@@ -28,20 +37,13 @@ const ResourceLibrary = ({ resourceData }) => {
         onChangeText={text => setSearchTerm(text)}
         onSubmitEditing={() => searchResources(searchTerm)}
       />
-      <TouchableOpacity onPress={clearSearch}>
+      <TouchableOpacity onPress={clear_search_callback}>
         <Text>Clear</Text>
       </TouchableOpacity>
       <FlatList
         data={memoizedFilteredResources}
         keyExtractor={item => item.url}
-        renderItem={({ item }) => (
-          <View>
-            <Text>{item.title}</Text>
-            <Text>{item.author}</Text>
-            <Text>{item.publicationYear}</Text>
-            <Text onPress={() => Linking.openURL(item.url)}>View Resource</Text>
-          </View>
-        )}
+        renderItem={({ item }) => <ResourceItem item={item} />}
       />
     </View>
   );
