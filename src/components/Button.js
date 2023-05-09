@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { globalStyles, colors } from '../styles/globalStyles';
+const { primary } = colors;
 
 // Button component for handling user interactions
 // Props:
@@ -11,8 +12,7 @@ import { globalStyles, colors } from '../styles/globalStyles';
 // - textStyle: Optional additional styles for the button text
 const Button = ({ title, onPress, style, textStyle }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.button, style]}>
-      <Text style={[globalStyles.text, styles.buttonText, textStyle]}>{title}</Text>
+    <TouchableOpacity onPress={onPress} style={[styles.button, style]}>      <Text style={[globalStyles.text, styles.buttonText, textStyle]}>{title}</Text>
     </TouchableOpacity>
   );
 };
@@ -31,7 +31,7 @@ Button.defaultProps = {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: colors.primary,
+    backgroundColor: primary,
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 5,
