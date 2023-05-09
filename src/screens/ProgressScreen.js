@@ -41,7 +41,11 @@ ProgressScreen.propTypes = {
   virtueProgressData: PropTypes.arrayOf(PropTypes.shape({
     virtue: PropTypes.string.isRequired,
     progress: PropTypes.number.isRequired,
-  })),
+  })).isRequired,
+};
+
+ProgressScreen.defaultProps = {
+  virtueProgressData: [],
 };
 
 export default ProgressScreen;
