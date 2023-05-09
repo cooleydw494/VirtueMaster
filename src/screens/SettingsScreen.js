@@ -17,7 +17,7 @@ const SettingsScreen = ({ navigation }) => {
             .catch((error) => {
                 console.log('Error signing out:', error);
             });
-    }, [firebaseAuth, navigation]);
+    }, [firebaseAuth,.navigation]);
 
     // Handles user account deletion
     const handleAccountDeletion = useCallback(() => {
