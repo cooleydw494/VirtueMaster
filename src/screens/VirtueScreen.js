@@ -7,12 +7,16 @@ import { globalStyles, colors } from '../styles/globalStyles';
 // The VirtueScreen component displays information about a specific virtue and allows the user to track their daily practice.
 const VirtueScreen = ({ route }) => {
   const { title, description } = route.params;
+  
+  // State variable to track if the virtue is practiced today
   const [isPracticedToday, setIsPracticedToday] = useState(false);
 
+  // Callback function to handle checkbox press
   const handlePress = useCallback(() => {
     setIsPracticedToday(!isPracticedToday);
   }, [isPracticedToday]);
 
+  // useMemo to create styles object
   const styles = useMemo(() => ({
     ...globalStyles,
     checkboxContainer: {
