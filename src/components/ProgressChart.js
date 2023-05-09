@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import { BarChart, XAxis } from 'react-native-svg-charts'; // Replace with a more suitable library for your use case
 import * as scale from 'd3-scale';
 
-const ProgressChart = ({ data: [{ value, color, label }] }) => {
+const ProgressChart = ({ data: [{ value, color, label }], style }) => {
   const barData = data.map(item => ({
     value: item.value,
     svg: {
@@ -15,7 +15,7 @@ const ProgressChart = ({ data: [{ value, color, label }] }) => {
   const labels = data.map(item => item.label);
 
   return (
-    <View style={{ flexDirection: 'column', height: 200, padding: 20 }}>
+    <View style={[{ flexDirection: 'column', height: 200, padding: 20 }, style]}>
       <BarChart
         key="bar-chart"
         style={{ flex: 1 }}
@@ -45,10 +45,12 @@ ProgressChart.propTypes = {
       label: PropTypes.string.isRequired,
     })
   ),
+  style: PropTypes.object,
 };
 
 ProgressChart.defaultProps = {
   data: [],
+  style: {},
 };
 
 ProgressChart.displayName = 'ProgressChart';
