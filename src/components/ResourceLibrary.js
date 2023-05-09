@@ -46,7 +46,14 @@ const ResourceLibrary = ({ resourceData }) => {
 };
 
 ResourceLibrary.propTypes = {
-  resourceData: PropTypes.array.isRequired,
+  resourceData: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      publicationYear: PropTypes.number.isRequired,
+      url: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default ResourceLibrary;
