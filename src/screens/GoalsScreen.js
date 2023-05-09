@@ -12,6 +12,7 @@ const GoalsScreen = ({ goals }) => {
   return (
     <View style={globalStyles.container}>
       <Text style={globalStyles.title}>Goals</Text>
+      {goals.length === 0 && <Text style={globalStyles.subtitle}>No goals to display</Text>}
       <FlatList
         data={goals}
         renderItem={renderItem}
