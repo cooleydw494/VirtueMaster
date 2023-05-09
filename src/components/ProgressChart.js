@@ -5,19 +5,19 @@ import { BarChart, XAxis } from 'react-native-svg-charts'; // Replace with a mor
 import * as scale from 'd3-scale';
 
 const ProgressChart = ({ data: [{ value, color, label }], style }) => {
-  const barData = data.map(item => ({
-    value: item.value,
+  const barData = data.map(({ value, color }) => ({
+    value: value,
     svg: {
-      fill: item.color,
+      fill: color,
     },
   }));
 
-  const labels = data.map(item => item.label);
+  const labels = data.map(({ label }) => label);
 
   return (
     <View style={[{ flexDirection: 'column', height: 200, padding: 20 }, style]}>
       <BarChart
-        key="bar-chart"
+        key='bar-chart'
         style={{ flex: 1 }}
         data={barData}
         gridMin={0}
@@ -25,7 +25,7 @@ const ProgressChart = ({ data: [{ value, color, label }], style }) => {
         contentInset={{ top: 30, bottom: 30 }}
       />
       <XAxis
-        key="x-axis"
+        key='x-axis'
         style={{ marginTop: 10 }}
         data=data
         scale={scale.scaleBand}
