@@ -6,11 +6,13 @@ import { globalStyles, colors } from '../styles/globalStyles';
 import PropTypes from 'prop-types';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
+// Validation schema for the sign in form
 const SignInSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
     password: Yup.string().min(6, 'Password must be at least 6 characters').required('Required'),
 });
 
+// Custom hook to handle sign in functionality
 const useSignIn = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -32,6 +34,7 @@ const useSignIn = () => {
     return { signIn, loading, error, setLoading, setError };
 };
 
+// Sign in screen component
 const SignInScreen = ({ navigation }) => {
     const { signIn, loading, error, setLoading, setError } = useSignIn();
 
@@ -92,10 +95,12 @@ const SignInScreen = ({ navigation }) => {
     );
 };
 
+// Prop types validation
 SignInScreen.propTypes = {
     navigation: PropTypes.object.isRequired,
 };
 
+// Display name for debugging purposes
 SignInScreen.displayName = 'SignInScreen';
 
 export default SignInScreen;
