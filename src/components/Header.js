@@ -11,6 +11,7 @@ const Header = ({ title }) => {
   );
 };
 
+// propTypes and defaultProps are used for type checking and setting default values for the component's props
 Header.propTypes = {
   title: PropTypes.string
 };
