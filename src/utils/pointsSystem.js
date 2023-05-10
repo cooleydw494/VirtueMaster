@@ -7,23 +7,23 @@ const activities = {
 
 /**
  * Calculates the points earned for a given activity type.
- * @param {string} activityType - The type of activity to calculate points for.
+ * @param {string} activity_type - The type of activity to calculate points for.
  * @returns {number} The number of points earned for the activity.
  */
-const pointsEarned = (activityType) => {
-  return activities[activityType]?.points || 0;
+const points_earned = (activity_type) => {
+  return activities[activity_type]?.points || 0;
 };
 
 /**
  * Updates the points based on the activity type.
  * @param {Object} params - The parameters for updating points.
  * @param {number} params.points - The current points.
- * @param {string} params.activityType - The type of activity to update points for.
+ * @param {string} params.activity_type - The type of activity to update points for.
  * @returns {number} The updated points.
  */
-const updatePoints = ({ points, activityType }) => {
-  const earnedPoints = pointsEarned(activityType);
-  return points + earnedPoints;
+const update_points = ({ points, activity_type }) => {
+  const earned_points = points_earned(activity_type);
+  return points + earned_points;
 };
 
-export { pointsEarned, updatePoints };
+export { points_earned, update_points };
