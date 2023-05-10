@@ -4,7 +4,6 @@ import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import { globalStyles, colors } from '../styles/globalStyles';
 
-// Styles object creation outside the component
 const styles = {
   ...globalStyles,
   checkboxContainer: {
@@ -13,17 +12,19 @@ const styles = {
   },
 };
 
-// The VirtueScreen component displays information about a specific virtue and allows the user to track their daily practice.
-const VirtueScreen = ({ route }) => {
-  const { title, description } = route.params;
-  
-  // State variable to track if the virtue is practiced today
-  const [isPracticedToday, setIsPracticedToday] = useState(false);
+const useIsPracticedToday = (initialState) => {
+  const [isPracticedToday, setIsPracticedToday] = useState(initialState);
 
-  // Callback function to handle checkbox press
   const handlePress = useCallback(() => {
     setIsPracticedToday(!isPracticedToday);
   }, [isPracticedToday]);
+
+  return [isPracticedToday, handlePress];
+};
+
+const VirtueScreen = React.memo(({ route }) => {
+  const { title, description } = route.params;
+  const [isPracticedToday, handlePress] = useIsPracticedToday(false);
 
   return (
     <ScrollView style={styles.container}>
@@ -41,11 +42,12 @@ const VirtueScreen = ({ route }) => {
           checked={isPracticedToday}
           onPress={handlePress}
           containerStyle={styles.checkbox}
+          key="practicedTodayCheckbox"
         />
       </View>
     </ScrollView>
   );
-};
+});
 
 VirtueScreen.propTypes = {
   route: PropTypes.object.isRequired,
