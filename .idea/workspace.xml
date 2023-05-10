@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e5027ef-2519-4fd3-bf8c-afe202d205b7" name="Changes" comment="" />
+    <list default="true" id="5e5027ef-2519-4fd3-bf8c-afe202d205b7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/screens/SettingsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SettingsScreen.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
