@@ -3,9 +3,11 @@ import React, { useState, useEffect } from 'react';
 function FetchWrapper(baseUrl) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
+      setLoading(true);
       try {
         const response = await fetch(`${baseUrl}`);
         if (!response) throw new Error('Network error');
@@ -13,6 +15,8 @@ function FetchWrapper(baseUrl) {
         setData(jsonResponse);
       } catch (error) {
         setError(`GET request failed: ${error.message}`);
+      } finally {
+        setLoading(false);
       }
     }
     fetchData();
@@ -45,7 +49,7 @@ function FetchWrapper(baseUrl) {
     }
   }
 
-  return { data, post, error };
+  return { data, post, error, loading };
 }
 
 export default FetchWrapper;
