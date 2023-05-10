@@ -11,6 +11,15 @@ const ResourceItem = ({ item }) => (
   </View>
 );
 
+ResourceItem.propTypes = {
+  item: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    publicationYear: PropTypes.number.isRequired,
+    url: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
 const ResourceLibrary = ({ resourceData }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredResources, setFilteredResources] = useState(resourceData);
