@@ -5,7 +5,6 @@ import ProgressChart from '../components/ProgressChart';
 import { globalStyles, colors } from '../styles/globalStyles';
 
 const ProgressScreen = () => {
-  // Dummy data for demonstration purposes
   const virtueProgressData = [
     { virtue: 'Humility', progress: 0.7 },
     { virtue: 'Patience', progress: 0.5 },
@@ -16,7 +15,6 @@ const ProgressScreen = () => {
     { virtue: 'Chastity', progress: 0.9 },
   ];
 
-  // Dummy data for points and rewards
   const userPoints = 123;
   const userRewards = 5;
 
@@ -42,10 +40,6 @@ ProgressScreen.propTypes = {
     virtue: PropTypes.string.isRequired,
     progress: PropTypes.number.isRequired,
   })).isRequired,
-};
-
-ProgressScreen.defaultProps = {
-  virtueProgressData: [],
 };
 
 export default ProgressScreen;
