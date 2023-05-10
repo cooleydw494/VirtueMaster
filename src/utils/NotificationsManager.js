@@ -17,7 +17,7 @@ export async function scheduleDailyReminder(time) {
   try {
     await createChannel();
 
-    const trigger = { type: Notifee.Trigger.Type.TIME_INTERVAL, interval: 86400, repeat: true };
+    const trigger = { type: Notifee.Trigger.Type.TIME_INTERVAL, interval: 86400, repeat: true, time: time };
     await Notifee.createTriggerNotification(
       {
         id: 'daily-reminder-notification',
