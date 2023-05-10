@@ -4,7 +4,8 @@ import { View } from 'react-native';
 import { BarChart, XAxis } from 'react-native-svg-charts'; // Replace with a more suitable library for your use case
 import * as scale from 'd3-scale';
 
-const ProgressChart = ({ data: [{ value, color, label }], style }) => {
+// ProgressChart component displays a bar chart with custom data, colors, and labels
+const ProgressChart = ({ data: [{ value, color, label }], style = {} }) => {
   const barData = data.map(({ value, color }) => ({
     value: value,
     svg: {
@@ -48,11 +49,6 @@ ProgressChart.propTypes = {
   style: PropTypes.object,
 };
 
-ProgressChart.defaultProps = {
-  data: [],
-  style: {},
-};
-
 ProgressChart.displayName = 'ProgressChart';
 
-export default ProgressChart;
+export default React.memo(ProgressChart);
