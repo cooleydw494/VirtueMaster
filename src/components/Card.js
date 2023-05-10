@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { View, StyleSheet } from 'react-native';
 import { colors } from '../styles/globalStyles';
 
+const { cardBackground } = colors;
+
 // Card component is a reusable container for displaying content with a consistent style
 const Card = ({ children, style }) => {
   return <View style={[styles.card, style]}>{children}</View>;
@@ -20,7 +22,7 @@ Card.defaultProps = {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: colors.cardBackground || 'white',
+    backgroundColor: cardBackground || 'white',
     borderRadius: 5,
     marginVertical: 10,
     paddingHorizontal: 15,
