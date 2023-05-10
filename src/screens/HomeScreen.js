@@ -3,7 +3,7 @@ import { View, Text, FlatList, ActivityIndicator } from 'react-native';
 import PropTypes from 'prop-types';
 import { globalStyles, colors } from '../styles/globalStyles';
 import Card from "../components/Card"
-import pool from '../database/connect';
+import { fetchVirtues } from '../services/virtueService';
 import { useNavigation } from '@react-navigation/native';
 
 const HomeScreen = () => {
@@ -14,10 +14,10 @@ const HomeScreen = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchVirtues = async () => {
+    const fetchData = async () => {
       try {
-        const result = await pool.query('SELECT * FROM virtues');
-        setVirtues(result.rows);
+        const result = await fetchVirtues();
+        setVirtues(result);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -26,15 +26,15 @@ const HomeScreen = () => {
       }
     };
 
-    fetchVirtues();
+    fetchData();
   }, []);
 
   const handlePress = useCallback(
-    (item) => {
-      navigation.navigate('VirtueScreen', item);
-    },
-    [navigation]
-  );
+      (item) => {
+        navigation.navigate('VirtueScreen', item);
+      },
+      [navigation]
+    );
 
   const keyExtractor = useCallback((item) => `${item.id}-${item.title}`, []);
 
