@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { globalStyles } from '../styles/globalStyles';
 import BackgroundImage from '../../assets/custom-svgs/BackgroundImage.js';
 import Logo from '../../assets/custom-svgs/Logo.js';
@@ -16,36 +17,39 @@ const WelcomeScreenHeader = () => (
   </>
 );
 
-const WelcomeScreenButtons = ({ navigation }) => (
-  <>
-    <TouchableOpacity
-      style={globalStyles.primaryButton}
-      onPress={() => navigation.navigate('SignInScreen')}
-    >
-      <Text style={globalStyles.buttonText}>Sign In</Text>
-    </TouchableOpacity>
-    <TouchableOpacity
-      style={globalStyles.secondaryButton}
-      onPress={() => navigation.navigate('SignUpScreen')}
-    >
-      <Text style={globalStyles.buttonText}>Sign Up</Text>
-    </ TouchableOpacity>
-  </>
-);
+const WelcomeScreenButtons = () => {
+  const navigation = useNavigation();
+  return (
+    <>
+      <TouchableOpacity
+        style={globalStyles.primaryButton}
+        onPress={() => navigation.navigate('SignInScreen')}
+      >
+        <Text style={globalStyles.buttonText}>Sign In</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={globalStyles.secondaryButton}
+        onPress={() => navigation.navigate('SignUpScreen')}
+      >
+        <Text style={globalStyles.buttonText}>Sign Up</Text>
+      </ TouchableOpacity>
+    </>
+  );
+};
 
-const WelcomeScreen = React.memo(({ navigation }) => {
+WelcomeScreenButtons.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
+
+const WelcomeScreen = React.memo(() => {
   return (
     <View style={globalStyles.container}>
       <View style={globalStyles.overlay}>
         <WelcomeScreenHeader />
-        <WelcomeScreenButtons navigation={navigation} />
+        <WelcomeScreenButtons />
       </View>
     </View>
   );
 });
-
-WelcomeScreen.propTypes = {
-  navigation: PropTypes.object.isRequired,
-};
 
 export default WelcomeScreen;
