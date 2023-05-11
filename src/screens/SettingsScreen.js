@@ -63,6 +63,11 @@ const SettingsScreen = ({ navigation }) => {
                     text: 'Reset',
                     onPress: () => {
                         // Reset the user's progress data
+                        try {
+                            // Code to reset user's progress data
+                        } catch (error) {
+                            console.log('Error resetting user progress:', error);
+                        }
                     },
                     style: 'destructive',
                 },
