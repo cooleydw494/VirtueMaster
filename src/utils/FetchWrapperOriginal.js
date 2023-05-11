@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function useFetchWrapper(baseUrl) {
+function FetchWrapper(baseUrl) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -38,18 +38,18 @@ function useFetchWrapper(baseUrl) {
     }
   }
 
+  async function handleResponse(response) {
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.statusText}`);
+    }
+    try {
+      return await response.json();
+    } catch (error) {
+      throw new Error(`Parsing error: ${error.message}`);
+    }
+  }
+
   return { data, post, error, loading };
 }
 
-async function handleResponse(response) {
-  if (!response.ok) {
-    throw new Error(`HTTP error: ${response.statusText}`);
-  }
-  try {
-    return await response.json();
-  } catch (error) {
-    throw new Error(`Parsing error: ${error.message}`);
-  }
-}
-
-export default useFetchWrapper;
+export default FetchWrapper;
