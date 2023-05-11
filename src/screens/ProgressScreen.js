@@ -36,6 +36,8 @@ const ProgressScreen = () => {
 };
 
 ProgressScreen.propTypes = {
+  userPoints: PropTypes.number.isRequired,
+  userRewards: PropTypes.number.isRequired,
   virtueProgressData: PropTypes.arrayOf(PropTypes.shape({
     virtue: PropTypes.string.isRequired,
     progress: PropTypes.number.isRequired,
