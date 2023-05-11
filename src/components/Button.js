@@ -12,7 +12,12 @@ const { primary } = colors;
 // - textStyle: Optional additional styles for the button text
 const Button = ({ title, onPress, style, textStyle }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.button, style]}>
+    <TouchableOpacity
+      accessible
+      accessibilityLabel={title}
+      onPress={onPress}
+      style={[styles.button, style]}
+    >
       <Text style={[globalStyles.text, styles.buttonText, textStyle]}>{title}</Text>
     </TouchableOpacity>
   );
@@ -44,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Button;
+export default React.memo(Button);
