@@ -4,9 +4,9 @@ import { View, Text, FlatList } from 'react-native';
 import GoalItem from '../components/GoalItem';
 import { globalStyles, colors } from '../styles/globalStyles';
 
-const renderItem = ({ item }) => (
+const renderItem = React.memo(({ item }) => (
   <GoalItem key={item.id} title={item.title} description={item.description} />
-);
+));
 
 const GoalsScreen = ({ goals = [] }) => {
   return (
@@ -33,6 +33,7 @@ GoalsScreen.propTypes = {
       description: PropTypes.string.isRequired,
     })
   ),
+  renderItem: PropTypes.func,
 };
 
 GoalsScreen.defaultProps = {
