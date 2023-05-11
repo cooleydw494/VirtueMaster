@@ -1,11 +1,11 @@
+// ProgressChart component displays a bar chart with custom data, colors, and labels
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import { BarChart, XAxis } from 'react-native-svg-charts'; // Replace with a more suitable library for your use case
 import * as scale from 'd3-scale';
 
-// ProgressChart component displays a bar chart with custom data, colors, and labels
-const ProgressChart = ({ data: [{ value, color, label }], style = {} }) => {
+const ProgressChart = ({ data = [{ value: 0, color: 'transparent', label: '' }], style = {} }) => {
   const barData = data.map(({ value, color }) => ({
     value: value,
     svg: {
