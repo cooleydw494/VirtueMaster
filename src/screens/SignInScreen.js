@@ -5,34 +5,13 @@ import * as Yup from 'yup';
 import { globalStyles, colors } from '../styles/globalStyles';
 import PropTypes from 'prop-types';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { useSignIn } from '../hooks/useSignIn';
 
 // Validation schema for the sign in form
 const SignInSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
     password: Yup.string().min(6, 'Password must be at least 6 characters').required('Required'),
 });
-
-// Custom hook to handle sign in functionality
-const useSignIn = () => {
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-
-    const signIn = async (values, navigation) => {
-        setLoading(true);
-        setError(null);
-        const auth = getAuth();
-        try {
-            await signInWithEmailAndPassword(auth, values.email, values.password);
-            setLoading(false);
-            navigation.navigate('HomeScreen');
-        } catch (error) {
-            setLoading(false);
-            setError(error.message);
-        }
-    };
-
-    return { signIn, loading, error, setLoading, setError };
-};
 
 // Sign in screen component
 const SignInScreen = ({ navigation }) => {
