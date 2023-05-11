@@ -1,15 +1,19 @@
-import * as Notifee from '@notifee/react-native';
+import { Notifee } from '@notifee/react-native';
 
 const CHANNEL_ID = 'daily-reminder';
 
 // Creates a notification channel for daily reminders
 export async function createChannel() {
-  await Notifee.createChannel({
-    id: CHANNEL_ID,
-    name: 'Daily Reminder',
-    lights: false,
-    vibration: true,
-  });
+  try {
+    await Notifee.createChannel({
+      id: CHANNEL_ID,
+      name: 'Daily Reminder',
+      lights: false,
+      vibration: true,
+    });
+  } catch (error) {
+    console.error('Error creating channel:', error);
+  }
 }
 
 // Schedules a daily reminder notification at the specified time
