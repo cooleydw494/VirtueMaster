@@ -13,6 +13,8 @@ const HomeScreen = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const ERROR_MESSAGE = "Error fetching data. Please try again later.";
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -49,7 +51,7 @@ const HomeScreen = () => {
   if (error) {
     return (
       <View style={globalStyles.container}>
-        <Text style={globalStyles.errorText}>Error fetching data. Please try again later.</Text>
+        <Text style={globalStyles.errorText}>{ERROR_MESSAGE}</Text>
       </View>
     );
   }
@@ -69,6 +71,10 @@ const HomeScreen = () => {
       />
     </View>
   );
+};
+
+HomeScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
 };
 
 export default React.memo(HomeScreen);
