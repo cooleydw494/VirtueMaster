@@ -1,9 +1,9 @@
-const activities = new Map([
-  ["check_daily_virtue", { points: 5 }],
-  ["complete_reflection", { points: 10 }],
-  ["reach_weekly_goal", { points: 50 }],
+const activities = {
+  check_daily_virtue: { points: 5 },
+  complete_reflection: { points: 10 },
+  reach_weekly_goal: { points: 50 },
   // other activities here...
-]);
+};
 
 /**
  * Calculates the points earned for a given activity type.
@@ -11,7 +11,7 @@ const activities = new Map([
  * @returns {number} The number of points earned for the activity.
  */
 const get_points_earned = (activity_type) => {
-  return activities.get(activity_type)?.points || 0;
+  return activities[activity_type]?.points || 0;
 };
 
 /**
