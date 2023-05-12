@@ -4,6 +4,7 @@ import { View, Text, TouchableOpacity, Alert } from 'react-native';
 import { globalStyles, colors } from '../styles/globalStyles';
 import { getAuth } from "firebase/auth";
 
+// The SettingsScreen component contains user settings options, such as sign out, reset progress, and delete account.
 const SettingsScreen = ({ navigation }) => {
     const firebaseAuth = getAuth();
 
