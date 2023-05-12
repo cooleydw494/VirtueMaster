@@ -2,12 +2,26 @@ import React, { useState, useCallback, useMemo } from 'react';
 import { View, Text, TextInput, TouchableOpacity, FlatList, Linking, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
-const ResourceItem = ({ item }) => (
+const styles = StyleSheet.create({
+  clearButton: {
+    // Add your desired styles here
+  },
+});
+
+const ResourceItem = ({
+  item,
+}) => (
   <View>
     <Text>{item.title}</Text>
     <Text>{item.author}</Text>
     <Text>{item.publicationYear}</Text>
-    <Text onPress={() => Linking.openURL(item.url)}>View Resource</Text>
+    <Text onPress={() => {
+      try {
+        Linking.openURL(item.url);
+      } catch (error) {
+        console.error('Error opening URL:', error);
+      }
+    }}>View Resource</Text>
   </View>
 );
 
@@ -20,16 +34,24 @@ ResourceItem.propTypes = {
   }).isRequired,
 };
 
-const ResourceLibrary = ({ resourceData }) => {
+const ResourceLibrary = ({ resourceData = [] }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredResources, setFilteredResources] = useState(resourceData);
 
-  const searchResources = useCallback(term => {
+  const debounce = (func, wait) => {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+  };
+
+  const searchResources = useCallback(debounce((term) => {
     const searchResults = resourceData.filter(resource =>
       resource.title.toLowerCase().includes(term.toLowerCase())
     );
     setFilteredResources(searchResults);
-  }, [resourceData]);
+  }, 300), [resourceData]);
 
   const clear_search_callback = useCallback(() => {
     setSearchTerm('');
@@ -43,10 +65,14 @@ const ResourceLibrary = ({ resourceData }) => {
       <TextInput
         placeholder='Search resources...'
         value={searchTerm}
-        onChangeText={text => setSearchTerm(text)}
+        onChangeText={text => {
+          setSearchTerm(text);
+          searchResources(text);
+        }}
         onSubmitEditing={() => searchResources(searchTerm)}
+        accessibilityLabel="Search resources input"
       />
-      <TouchableOpacity onPress={clear_search_callback}>
+      <TouchableOpacity onPress={clear_search_callback} style={styles.clearButton} accessibilityLabel="Clear search button">
         <Text>Clear</Text>
       </TouchableOpacity>
       <FlatList
@@ -66,7 +92,7 @@ ResourceLibrary.propTypes = {
       publicationYear: PropTypes.number.isRequired,
       url: PropTypes.string.isRequired,
     })
-  ).isRequired,
+  ),
 };
 
 export default ResourceLibrary;
