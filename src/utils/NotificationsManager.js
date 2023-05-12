@@ -1,8 +1,11 @@
 import { Notifee } from '@notifee/react-native';
 
 const CHANNEL_ID = 'daily-reminder';
+const NOTIFICATION_ID = 'daily-reminder-notification';
 
-// Creates a notification channel for daily reminders
+/**
+ * Creates a notification channel for daily reminders.
+ */
 export async function createChannel() {
   try {
     await Notifee.createChannel({
@@ -16,15 +19,18 @@ export async function createChannel() {
   }
 }
 
-// Schedules a daily reminder notification at the specified time
-export async function scheduleDailyReminder(time) {
+/**
+ * Schedules a daily reminder notification at the specified time.
+ * @param {string} time - The time to schedule the daily reminder.
+ */
+export async function scheduleDailyReminder(time: string) {
   try {
     await createChannel();
 
     const trigger = { type: Notifee.Trigger.Type.TIME_INTERVAL, interval: 86400, repeat: true, time: time };
     await Notifee.createTriggerNotification(
       {
-        id: 'daily-reminder-notification',
+        id: NOTIFICATION_ID,
         title: 'Track your progress',
         body: "Don't forget to track your progress today.",
         android: {
@@ -43,10 +49,12 @@ export async function scheduleDailyReminder(time) {
   }
 }
 
-// Cancels the scheduled daily reminder notification
+/**
+ * Cancels the scheduled daily reminder notification.
+ */
 export async function cancelScheduledNotification() {
   try {
-    await Notifee.cancelNotification('daily-reminder-notification');
+    await Notifee.cancelNotification(NOTIFICATION_ID);
   } catch (error) {
     console.error('Error canceling scheduled notification:', error);
   }
