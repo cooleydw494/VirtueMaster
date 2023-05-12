@@ -2,20 +2,15 @@ import {  Platform } from 'react-native';
 import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { initializeApp } from 'firebase/app';
-import { Ionicons } from '@expo/vector-icons';
 import * as Notifications from 'expo-notifications';
 import Constants from 'expo-constants';
 
-import WelcomeScreen from './src/screens/WelcomeScreen';
+import WelcomeScreen from './src/screens/WelcomeScreen.js';
 import SignInScreen from './src/screens/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
-import HomeScreen from './src/screens/HomeScreen';
 import VirtueScreen from './src/screens/VirtueScreen';
-import ProgressScreen from './src/screens/ProgressScreen';
-import SettingsScreen from './src/screens/SettingsScreen';
-import GoalsScreen from './src/screens/GoalsScreen';
+import TabNavigator from "./src/components/TabNavigator";
 
 // Configure Firebase. DO NOT CHANGE THIS CONFIG, THESE ENV VALUES ARE DEFINED ELSEWHERE.
 const firebaseConfig = {
@@ -38,7 +33,6 @@ Notifications.setNotificationHandler({
 });
 
 const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
 
 const App = () => {
   const registerForPushNotificationsAsync = async () => {
@@ -75,46 +69,16 @@ const App = () => {
     registerForPushNotificationsAsync(); // editor says "Promise returned is ignored
   }, []);
 
-  const TabNavigator = () => (
-    <Tab.Navigator screenOptions={({ route }) => ({
-      tabBarIcon: ({ color, size }) => {
-        let iconName;
-
-        if (route.name === 'HomeScreen') {
-          iconName = Platform.OS === 'ios' ? 'ios-home' : 'md-home';
-        } else if (route.name === 'ProgressScreen') {
-          iconName = Platform.OS === 'ios' ? 'ios-analytics' : 'md-analytics';
-        } else if (route.name === 'SettingsScreen') {
-          iconName = Platform.OS === 'ios' ? 'ios-settings' : 'md-settings';
-        } else if (route.name === 'GoalsScreen') {
-          iconName = Platform.OS === 'ios' ? 'ios-ribbon' : 'md-ribbon';
-        }
-
-        return <Ionicons name={iconName} size={size} color={color} />;
-      },
-    })}
-    tabBarOptions={{
-      activeTintColor: '#457B9D',
-      inactiveTintColor: 'gray',
-    }}
-    >
-      <Tab.Screen name='HomeScreen' component={HomeScreen} />
-      <Tab.Screen name='ProgressScreen' component={ProgressScreen} />
-      <Tab.Screen name='SettingsScreen' component={SettingsScreen} />
-      <Tab.Screen name='GoalsScreen' component={GoalsScreen} />
-    </Tab.Navigator>
-  );
-
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='Welcome'>
-        <Stack.Screen name='WelcomeScreen' component={WelcomeScreen} />
-        <Stack.Screen name='SignInScreen' component={SignInScreen} />
-        <Stack.Screen name='SignUpScreen' component={SignUpScreen} />
-        <Stack.Screen name='VirtueScreen' component={VirtueScreen} />
-        <Stack.Screen name='TabNavigator' component={TabNavigator} options={{ headerShown: false }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName='Welcome'>
+          <Stack.Screen name='WelcomeScreen' component={WelcomeScreen} />
+          <Stack.Screen name='SignInScreen' component={SignInScreen} />
+          <Stack.Screen name='SignUpScreen' component={SignUpScreen} />
+          <Stack.Screen name='VirtueScreen' component={VirtueScreen} />
+          <Stack.Screen name='TabNavigator' component={TabNavigator} options={{ headerShown: false }} />
+        </Stack.Navigator>
+      </NavigationContainer>
   );
 };
 

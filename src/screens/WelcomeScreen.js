@@ -33,7 +33,7 @@ const WelcomeScreenButtons = () => {
         onPress={() => navigation.navigate('SignUpScreen')}
       >
         <Text style={globalStyles.buttonText}>Sign Up</Text>
-      <\/ TouchableOpacity>
+      </ TouchableOpacity>
     </>
   );
 };
