@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { initializeApp } from 'firebase/app';
@@ -12,7 +11,7 @@ import VirtueScreen from './src/screens/VirtueScreen';
 import TabNavigator from './src/components/TabNavigator';
 import firebaseConfig from './firebaseConfig';
 
-const firebaseApp = initializeApp(firebaseConfig);
+export const firebaseApp = initializeApp(firebaseConfig);
 
 const Stack = createStackNavigator();
 
@@ -37,4 +36,3 @@ const App = () => {
 };
 
 export default App;
-export { firebaseApp };
