@@ -1,61 +1,65 @@
-import { Notifee } from '@notifee/react-native';
+import Constants from 'expo-constants';
+import * as Notifications from 'expo-notifications';
 
 const CHANNEL_ID = 'daily-reminder';
 const NOTIFICATION_ID = 'daily-reminder-notification';
 
-/**
- * Creates a notification channel for daily reminders.
- */
-export async function createChannel() {
-  try {
-    await Notifee.createChannel({
-      id: CHANNEL_ID,
-      name: 'Daily Reminder',
-      lights: false,
-      vibration: true,
-    });
-  } catch (error) {
-    console.error('Error creating channel:', error);
-  }
+// Set notification handler
+Notifications.setNotificationHandler({
+    handleNotification: async () => ({
+        shouldShowAlert: true,
+        shouldPlaySound: false,
+        shouldSetBadge: false,
+    }),
+});
+
+// Register for push notifications
+export async function registerForPushNotificationsAsync() {
+    let token;
+    if (Constants.isDevice) {
+        const { status: existingStatus } = await Notifications.getPermissionsAsync();
+        let finalStatus = existingStatus;
+        if (existingStatus !== 'granted') {
+            const { status } = await Notifications.requestPermissionsAsync();
+            finalStatus = status;
+        }
+        if (finalStatus !== 'granted') {
+            alert('Failed to get push token for push notification!');
+            return;
+        }
+        token = (await Notifications.getExpoPushTokenAsync()).data;
+    } else {
+        alert('Must use physical device for Push Notifications');
+    }
+
+    if (Platform.OS === 'android') {
+        Notifications.setNotificationChannelAsync(CHANNEL_ID, {
+            name: 'Daily Reminder',
+            importance: Notifications.AndroidImportance.MAX,
+            vibrationPattern: [0, 250, 250, 250],
+            lightColor: '#FF231F7C',
+        });
+    }
+
+    return token;
 }
 
-/**
- * Schedules a daily reminder notification at the specified time.
- * @param {string} time - The time to schedule the daily reminder.
- */
+// Schedules a daily reminder notification at the specified time
 export async function scheduleDailyReminder(time) {
-  try {
-    await createChannel();
-
-    const trigger = { type: Notifee.Trigger.Type.TIME_INTERVAL, interval: 86400, repeat: true, time: time };
-    await Notifee.createTriggerNotification(
-      {
-        id: NOTIFICATION_ID,
-        title: 'Track your progress',
-        body: "Don't forget to track your progress today.",
-        android: {
-          channelId: CHANNEL_ID,
-          smallIcon: 'ic_stat_name',
-          largeIcon: 'ic_launcher',
+    await Notifications.scheduleNotificationAsync({
+        content: {
+            title: 'Track your progress',
+            body: "Don't forget to track your progress today.",
         },
-        ios: {
-          categoryId: 'DAILY_REMINDER',
+        trigger: {
+            hour: time.hour,
+            minute: time.minute,
+            repeats: true,
         },
-      },
-      { trigger: trigger }
-    );
-  } catch (error) {
-    console.error('Error scheduling daily reminder:', error);
-  }
+    });
 }
 
-/**
- * Cancels the scheduled daily reminder notification.
- */
+// Cancels the scheduled daily reminder notification
 export async function cancelScheduledNotification() {
-  try {
-    await Notifee.cancelNotification(NOTIFICATION_ID);
-  } catch (error) {
-    console.error('Error canceling scheduled notification:', error);
-  }
+    await Notifications.cancelScheduledNotificationAsync(NOTIFICATION_ID);
 }

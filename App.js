@@ -1,10 +1,9 @@
-import {  Platform } from 'react-native';
 import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { initializeApp } from 'firebase/app';
-import * as Notifications from 'expo-notifications';
-import Constants from 'expo-constants';
+import React, { useEffect } from 'react';
+import { registerForPushNotificationsAsync } from './src/utils/NotificationsManager';
 
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import SignInScreen from './src/screens/SignInScreen';
@@ -15,52 +14,16 @@ import firebaseConfig from './firebaseConfig';
 
 const firebaseApp = initializeApp(firebaseConfig);
 
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: false,
-    shouldSetBadge: false,
-  }),
-});
-
 const Stack = createStackNavigator();
 
 const App = () => {
-  const registerForPushNotificationsAsync = async () => {
-    let token;
-    if (Constants.isDevice) {
-      const { status: existingStatus } = await Notifications.getPermissionsAsync();
-      let finalStatus = existingStatus;
-      if (existingStatus !== 'granted') {
-        const { status } = await Notifications.requestPermissionsAsync();
-        finalStatus = status;
-      }
-      if (finalStatus !== 'granted') {
-        alert('Failed to get push token for push notification!');
-        return;
-      }
-      token = (await Notifications.getExpoPushTokenAsync()).data;
-    } else {
-      alert('Must use physical device for Push Notifications');
-    }
+    useEffect(() => {
+        registerForPushNotificationsAsync()
+            .then(token => console.log(token))
+            .catch(err => console.error(err));
+    }, []);
 
-    if (Platform.OS === 'android') {
-      Notifications.setNotificationChannelAsync('default', {
-        name: 'default',
-        importance: Notifications.AndroidImportance.MAX,
-        vibrationPattern: [0, 250, 250, 250],
-        lightColor: '#FF231F7C',
-      }); // editor says "missing await for async function call
-    }
-
-    return token;
-  };
-
-  useEffect(() => {
-    registerForPushNotificationsAsync(); // editor says "Promise returned is ignored
-  }, []);
-
-  return (
+    return (
       <NavigationContainer>
         <Stack.Navigator initialRouteName='Welcome'>
           <Stack.Screen name='WelcomeScreen' component={WelcomeScreen} />
@@ -70,7 +33,7 @@ const App = () => {
           <Stack.Screen name='TabNavigator' component={TabNavigator} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
-  );
+    );
 };
 
 export default App;
