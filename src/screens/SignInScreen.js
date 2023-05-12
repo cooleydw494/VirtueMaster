@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
-import { Formik, Field } from 'formik';
+import React from 'react';
+import { View, Text } from 'react-native';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { globalStyles, colors } from '../styles/globalStyles';
+import { globalStyles } from '../styles/globalStyles';
 import PropTypes from 'prop-types';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useSignIn } from '../hooks/useSignIn';
+import SignInForm from '../components/SignInForm';
 
 // Validation schema for the sign in form
 const SignInSchema = Yup.object().shape({
@@ -15,7 +15,7 @@ const SignInSchema = Yup.object().shape({
 
 // Sign in screen component
 const SignInScreen = ({ navigation }) => {
-    const { signIn, loading, error, setLoading, setError } = useSignIn();
+    const { signIn, loading, error } = useSignIn();
 
     return (
         <Formik
@@ -27,47 +27,15 @@ const SignInScreen = ({ navigation }) => {
                 <View style={globalStyles.container}>
                     <Text style={globalStyles.title}>Sign In</Text>
                     {error && <React.Fragment><Text style={globalStyles.errorText}>{error}</Text></React.Fragment>}
-                    <Field
-                        component={TextInput}
-                        style={globalStyles.input}
-                        placeholder='Email'
-                        name='email'
-                        onChangeText={handleChange('email')}
-                        onBlur={handleBlur('email')}
-                        value={values.email}
-                        keyboardType='email-address'
-                        autoCompleteType='email'
-                        accessibilityLabel='Email input'
+                    <SignInForm
+                        handleChange={handleChange}
+                        handleBlur={handleBlur}
+                        handleSubmit={handleSubmit}
+                        values={values}
+                        errors={errors}
+                        touched={touched}
+                        loading={loading}
                     />
-                    {errors.email && touched.email && <Text style={globalStyles.errorText}>{errors.email}</Text>}
-                    <Field
-                        component={TextInput}
-                        style={globalStyles.input}
-                        placeholder='Password'
-                        name='password'
-                        onChangeText={handleChange('password')}
-                        onBlur={handleBlur('password')}
-                        value={values.password}
-                        secureTextEntry
-                        autoCompleteType='password'
-                        accessibilityLabel='Password input'
-                    />
-                    {errors.password && touched.password && <Text style={globalStyles.errorText}>{errors.password}</Text>}
-                    <TouchableOpacity style={globalStyles.primaryButton} onPress={handleSubmit} disabled={loading} accessibilityLabel='Sign In button'>
-                        {loading ? (
-                            <ActivityIndicator size='small' color={colors.white} />
-                        ) : (
-                            <Text style={globalStyles.buttonText}>Sign In</Text>
-                        )}
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('SignUpScreen')}
-                        accessibilityLabel='Navigate to Sign Up screen'
-                    >
-                        <Text style={globalStyles.linkText}>
-                            Don't have an account? Sign Up
-                        </Text>
-                    </TouchableOpacity>
                 </View>
             )}
         </Formik>
