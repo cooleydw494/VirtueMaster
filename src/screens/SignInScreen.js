@@ -21,7 +21,13 @@ const SignInScreen = ({ navigation }) => {
         <Formik
             initialValues={{ email: '', password: '' }}
             validationSchema={SignInSchema}
-            onSubmit={(values) => signIn(values, navigation)}
+            onSubmit={(values) => {
+                try {
+                    signIn(values, navigation);
+                } catch (err) {
+                    console.error('Failed to sign in:', err);
+                }
+            }}
         >
             {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
                 <View style={globalStyles.container}>
@@ -50,4 +56,4 @@ SignInScreen.propTypes = {
 // Display name for debugging purposes
 SignInScreen.displayName = 'SignInScreen';
 
-export default SignInScreen;
+export default React.memo(SignInScreen);

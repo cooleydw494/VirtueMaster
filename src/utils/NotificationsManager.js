@@ -23,7 +23,7 @@ export async function createChannel() {
  * Schedules a daily reminder notification at the specified time.
  * @param {string} time - The time to schedule the daily reminder.
  */
-export async function scheduleDailyReminder(time: string) {
+export async function scheduleDailyReminder(time) {
   try {
     await createChannel();
 

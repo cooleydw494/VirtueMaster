@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e5027ef-2519-4fd3-bf8c-afe202d205b7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/TabNavigator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/WelcomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/WelcomeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/NotificationsManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/NotificationsManager.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +65,7 @@
       <workItem from="1682804706234" duration="11908000" />
       <workItem from="1682994909754" duration="8282000" />
       <workItem from="1683738183633" duration="598000" />
-      <workItem from="1683745201991" duration="11532000" />
+      <workItem from="1683745201991" duration="11919000" />
     </task>
     <servers />
   </component>
