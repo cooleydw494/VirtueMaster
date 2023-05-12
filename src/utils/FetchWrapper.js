@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+// A custom hook for fetching data and making POST requests
 function useFetchWrapper(baseUrl) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -22,6 +23,7 @@ function useFetchWrapper(baseUrl) {
     fetchData();
   }, [baseUrl]);
 
+  // Handles POST requests
   async function post(endpoint, data) {
     try {
       const response = await fetch(`${baseUrl}${endpoint}`, {
@@ -41,6 +43,7 @@ function useFetchWrapper(baseUrl) {
   return { data, post, error, loading };
 }
 
+// Handles response and error checking for fetch requests
 async function handleResponse(response) {
   if (!response.ok) {
     throw new Error(`HTTP error: ${response.statusText}`);
