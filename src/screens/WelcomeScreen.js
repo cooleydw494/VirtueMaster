@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { globalStyles } from '../styles/globalStyles';
 import BackgroundImage from '../../assets/custom-svgs/BackgroundImage.js';
 import Logo from '../../assets/custom-svgs/Logo.js';
 
+// WelcomeScreenHeader displays the header.
 const WelcomeScreenHeader = () => (
   <>
     <BackgroundImage style={globalStyles.background} />
@@ -17,6 +17,7 @@ const WelcomeScreenHeader = () => (
   </>
 );
 
+// WelcomeScreenButtons displays the 'Sign In' and 'Sign Up' buttons.
 const WelcomeScreenButtons = () => {
   const navigation = useNavigation();
   return (
@@ -32,13 +33,9 @@ const WelcomeScreenButtons = () => {
         onPress={() => navigation.navigate('SignUpScreen')}
       >
         <Text style={globalStyles.buttonText}>Sign Up</Text>
-      </ TouchableOpacity>
+      <\/ TouchableOpacity>
     </>
   );
-};
-
-WelcomeScreenButtons.propTypes = {
-  navigation: PropTypes.object.isRequired,
 };
 
 const WelcomeScreen = React.memo(() => {
