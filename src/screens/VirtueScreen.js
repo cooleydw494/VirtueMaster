@@ -1,16 +1,8 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { CheckBox } from 'react-native-elements';
-import { globalStyles, colors } from '../styles/globalStyles';
-
-const styles = {
-  ...globalStyles,
-  checkboxContainer: {
-    ...globalStyles.checkboxContainer,
-    backgroundColor: colors.light,
-  },
-};
+import { styles } from './VirtueScreenStyles';
 
 const useIsPracticedToday = (initialState) => {
   const [isPracticedToday, setIsPracticedToday] = useState(initialState);
