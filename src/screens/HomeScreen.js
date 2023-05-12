@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, FlatList, ActivityIndicator } from 'react-native';
-import PropTypes from 'prop-types';
 import { globalStyles, colors } from '../styles/globalStyles';
 import Card from "../components/Card"
 import { fetchVirtues } from '../services/virtueService';
@@ -71,10 +70,6 @@ const HomeScreen = () => {
       />
     </View>
   );
-};
-
-HomeScreen.propTypes = {
-  navigation: PropTypes.object.isRequired,
 };
 
 export default React.memo(HomeScreen);
