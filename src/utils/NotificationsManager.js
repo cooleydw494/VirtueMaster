@@ -1,6 +1,7 @@
 import { Constants } from "expo-constants";
 import { Notifications } from "expo-notifications";
 import { Platform, Alert } from "react-native";
+import PushNotification from "react-native-push-notification";
 
 const CHANNEL_ID = "daily-reminder";
 const NOTIFICATION_ID = "daily-reminder-notification";
@@ -34,12 +35,16 @@ export async function registerForPushNotificationsAsync() {
   }
 
   if (Platform.OS === "android") {
-    Notifications.setNotificationChannelAsync(CHANNEL_ID, {
-      name: "Daily Reminder",
-      importance: Notifications.AndroidImportance.MAX,
-      vibrationPattern: [0, 250, 250, 250],
-      lightColor: "#FF231F7C",
-    });
+    PushNotification.createChannel(
+      {
+        channelId: CHANNEL_ID,
+        channelName: "Daily Reminder",
+        importance: PushNotification.AndroidImportance.MAX,
+        vibrationPattern: [0, 250, 250, 250],
+        lightColor: "#FF231F7C",
+      },
+      (created) => console.log(`createChannel returned '${created}'`)
+    );
   }
 
   return token;
@@ -47,20 +52,28 @@ export async function registerForPushNotificationsAsync() {
 
 // Schedules a daily reminder notification at the specified time
 export async function scheduleDailyReminder(time) {
-  await Notifications.scheduleNotificationAsync({
-    content: {
-      title: "Track your progress",
-      body: "Don't forget to track your progress today.",
-    },
-    trigger: {
-      hour: time.hour,
-      minute: time.minute,
-      repeats: true,
-    },
-  });
+  try {
+    await Notifications.scheduleNotificationAsync({
+      content: {
+        title: "Track your progress",
+        body: "Don't forget to track your progress today.",
+      },
+      trigger: {
+        hour: time.hour,
+        minute: time.minute,
+        repeats: true,
+      },
+    });
+  } catch (error) {
+    console.error("Error scheduling daily reminder:", error);
+  }
 }
 
 // Cancels the scheduled daily reminder notification
 export async function cancelScheduledNotification() {
-  await Notifications.cancelScheduledNotificationAsync(NOTIFICATION_ID);
+  try {
+    await Notifications.cancelScheduledNotificationAsync(NOTIFICATION_ID);
+  } catch (error) {
+    console.error("Error canceling scheduled notification:", error);
+  }
 }
