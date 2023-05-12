@@ -1,7 +1,22 @@
 const activities = {
-  check_daily_virtue: { points: 5 },
-  complete_reflection: { points: 10 },
-  reach_weekly_goal: { points: 50 },
+  checkDailyVirtue: { points: 5 },
+  completeReflection: { points: 10 },
+  reachWeeklyGoal: { points: 50 },
+  // other activities here...
+};
+
+/**
+ * @typedef {Object} Activity
+ * @property {number} points - The number of points associated with the activity.
+ */
+
+/**
+ * @type {Object.<string, Activity>}
+ */
+const activities = {
+  checkDailyVirtue: { points: 5 },
+  completeReflection: { points: 10 },
+  reachWeeklyGoal: { points: 50 },
   // other activities here...
 };
 
@@ -27,3 +42,4 @@ const update_points_based_on_activity = ({ points, activity_type }) => {
 };
 
 export { get_points_earned, update_points_based_on_activity };
+export default { get_points_earned, update_points_based_on_activity };
