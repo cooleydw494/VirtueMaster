@@ -5,7 +5,7 @@ import GoalItem from '../components/GoalItem';
 import { globalStyles, colors } from '../styles/globalStyles';
 
 const renderItem = React.memo(({ item }) => (
-  <GoalItem key={item.id} title={item.title} description={item.description} />
+  <GoalItem title={item.title} description={item.description} />
 ));
 
 const GoalsScreen = ({ goals = [] }) => {
