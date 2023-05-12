@@ -2,8 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ActivityIndicator, Alert, Linking } from 'react-native';
 import PropTypes from 'prop-types';
 import { getAuth } from 'firebase/auth';
-import { NavigationContainer, createStackNavigator, createBottomTabNavigator } from '@react-navigation';
-import { Ionicons } from '@expo/vector-icons';
+import { styles } from './SignUpScreenStyles';
 
 const SignUpScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -94,48 +93,5 @@ const SignUpScreen = ({ navigation }) => {
 SignUpScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingHorizontal: 20,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#CCCCCC',
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    marginBottom: 10,
-  },
-  primaryButton: {
-    backgroundColor: '#007BFF',
-    borderRadius: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingVertical: 10,
-    marginBottom: 10,
-  },
-  buttonText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-  },
-  linkText: {
-    color: '#007BFF',
-    textAlign: 'center',
-  },
-  errorText: {
-    color: '#FF0000',
-    marginBottom: 10,
-    textAlign: 'center',
-  },
-});
 
 export default SignUpScreen;
