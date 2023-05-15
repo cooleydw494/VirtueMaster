@@ -1,6 +1,6 @@
 import { Pool } from 'pg';
 import { firebaseApp } from "../../App";
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore } from 'firebase /firestore';
 import 'dotenv/config';
 
 const pool = new Pool({
@@ -13,31 +13,44 @@ const firestore = getFirestore(firebaseApp);
 export { pool, firestore };
 
 export async function getUser(firebase_uid) {
-  const { rows } = await pool.query('SELECT * FROM users WHERE firebase_uid = $1', [firebase_uid]);
-  return rows[0];
+  try {
+    const { rows } = await pool.query('SELECT * FROM users WHERE firebase_uid = $1', [firebase_uid]);
+    return rows[0];
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 export async function createUser(userData) {
   const { firebase_uid, email, display_name, provider, profile_picture_url, points, rewards, created_at, updated_at } = userData;
-  const { rows } = await pool.query(
+  try {
+    const { rows } = await pool.query(
       `INSERT INTO users (firebase_uid, email, display_name, provider, profile_picture_url, points, rewards, created_at, updated_at) 
     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
       [firebase_uid, email, display_name, provider, profile_picture_url, points, rewards, created_at, updated_at]
-  );
-  return rows[0];
+    );
+    return rows[0];
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 export async function updateUser(firebase_uid, updates) {
   const updateKeys = Object.keys(updates);
   const updateValues = Object.values(updates);
-  const updateSet = updateKeys.map((key, index) => `${key} = $${index + 2}`).join(', ');
+  const updateSet = updateKeys.map((key, index) => `${key} = ${index + 2}`).join(', ');
 
-  const { rows } = await pool.query(
+  try {
+    const { rows } = await pool.query(
       `UPDATE users SET ${updateSet} WHERE firebase_uid = $1 RETURNING *`,
       [firebase_uid, ...updateValues]
-  );
-  return rows[0];
+    );
+    return rows[0];
+  } catch (err) {
+    console.log(err);
+  }
 }
+
 
 export async function getAllVirtues() {
   const { rows } = await pool.query('SELECT * FROM virtues');
